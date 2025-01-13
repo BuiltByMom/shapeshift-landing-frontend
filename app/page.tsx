@@ -1,12 +1,16 @@
-import type {ReactElement} from 'react';
+'use client';
 
-import {Button} from '@/components/Button';
+import {useTranslations} from 'next-intl';
+import {ConnectButton} from '@rainbow-me/rainbowkit';
 
-export default function Home(): ReactElement {
+import type {ReactNode} from 'react';
+
+export default function HomePage(): ReactNode {
+	const t = useTranslations('SomePage');
 	return (
-		<div className={'font-[family-name:var(--font-geist-sans)]'}>
-			<h1 className={'font-bold text-white'}>{'Hello World'}</h1>
-			<Button />
+		<div>
+			<h1>{t('first_translation')}</h1>
+			<ConnectButton />
 		</div>
 	);
 }
