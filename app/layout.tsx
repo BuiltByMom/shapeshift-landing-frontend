@@ -6,18 +6,21 @@ import type {ReactNode} from 'react';
 import './globals.css';
 import '@rainbow-me/rainbowkit/styles.css';
 
+import {Header} from '@/components/Header';
 import {Providers} from '@/providers';
 
 export default async function RootLayout({children}: {children: React.ReactNode}): Promise<ReactNode> {
 	const locale = await getLocale();
-
 	const messages = await getMessages();
 
 	return (
 		<html lang={locale}>
 			<body>
 				<Providers>
-					<NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+					<NextIntlClientProvider messages={messages}>
+						<Header />
+						{children}
+					</NextIntlClientProvider>
 				</Providers>
 			</body>
 		</html>
