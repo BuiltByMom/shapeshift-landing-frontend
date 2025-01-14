@@ -131,6 +131,90 @@ body {
 		margin: 2rem 0;
 	}
 
+	/********************************************************************************************
+   * Callout styles for different types: info, warning, success, error
+   * Matches Ghost CMS callout appearance with appropriate colors and icons
+   ********************************************************************************************/
+	.kg-callout-card {
+		display: flex;
+		padding: 1.2rem 1.6rem;
+		margin: 1.5rem 0;
+		border-radius: 0.5rem;
+		gap: 1rem;
+
+		/* Default/Info style */
+		background: #1e293b; /* slate-800 */
+		border-left: 4px solid #3b82f6; /* blue-500 */
+
+		/* Icon container */
+		.kg-callout-icon {
+			width: 24px;
+			height: 24px;
+			color: #3b82f6; /* blue-500 */
+		}
+
+		/* Text content */
+		.kg-callout-text {
+			margin: 0;
+			color: #e2e8f0; /* slate-200 */
+		}
+
+		/* Warning variant */
+		&[data-kg-callout-type='warning'] {
+			background: #422006; /* yellow-900 with lower opacity */
+			border-left-color: #eab308; /* yellow-500 */
+			.kg-callout-icon {
+				color: #eab308; /* yellow-500 */
+			}
+		}
+
+		/* Success variant */
+		&.kg-callout-card-green {
+			background: #064e3b; /* green-900 with lower opacity */
+			border-left-color: #22c55e; /* green-500 */
+			.kg-callout-icon {
+				color: #22c55e; /* green-500 */
+			}
+		}
+
+		/* Error variant */
+		&[data-kg-callout-type='error'] {
+			background: #450a0a; /* red-900 with lower opacity */
+			border-left-color: #ef4444; /* red-500 */
+			.kg-callout-icon {
+				color: #ef4444; /* red-500 */
+			}
+		}
+
+		/* Custom variant */
+		&[data-kg-callout-type='custom'] {
+			background: #2e1065; /* purple-900 with lower opacity */
+			border-left-color: #a855f7; /* purple-500 */
+			.kg-callout-icon {
+				color: #a855f7; /* purple-500 */
+			}
+		}
+
+		/* Ensure links inside callouts are visible */
+		a {
+			color: currentColor;
+			text-decoration: underline;
+			opacity: 0.9;
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+
+	/* Ensure proper spacing when callouts are adjacent to other elements */
+	* + .kg-callout-card {
+		margin-top: 2rem;
+	}
+
+	.kg-callout-card + * {
+		margin-top: 2rem;
+	}
+
 	/* Figures and embedded content */
 	figure {
 		margin: 2rem 0;
