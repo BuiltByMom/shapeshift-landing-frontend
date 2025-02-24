@@ -306,41 +306,164 @@ export const foxTokenContributeItems = [
 	}
 ];
 
-export const blogTabs = [
+export const blogTypes = [
 	{
 		title: 'All posts',
 		slug: 'all'
 	},
 	{
 		title: 'Partner Integrations',
-		slug: 'Partner Integrations'
+		slug: 'partner-integrations'
 	},
 	{
 		title: 'Ethereum',
-		slug: 'Ethereum'
+		slug: 'ethereum'
 	},
 	{
 		title: 'Crypto 101',
-		slug: 'Crypto 101'
+		slug: 'crypto-101'
 	},
 	{
 		title: 'Bitcoin',
-		slug: 'Bitcoin'
+		slug: 'bitcoin'
 	},
 	{
 		title: 'Crypto pro',
-		slug: 'Crypto pro'
+		slug: 'crypto-pro'
 	},
 	{
 		title: 'Thought Leadership',
-		slug: 'Thought Leadership'
+		slug: 'thought-leadership'
 	},
 	{
 		title: 'Governance Newsletters',
-		slug: 'Governance Newsletters'
+		slug: 'governance-newsletters'
 	},
 	{
 		title: 'Newsletter',
-		slug: 'Newsletter'
+		slug: 'newsletter'
 	}
 ];
+
+export function blogTypesSlugToCategory(slug: string): string {
+	return blogTypes.find(tab => tab.slug === slug)?.title ?? slug;
+}
+
+export const blogTags = [
+	{
+		title: 'All tags',
+		slug: 'all'
+	},
+	{
+		title: 'Arbitrum',
+		slug: 'arbitrum'
+	},
+	{
+		title: 'Bitcoin',
+		slug: 'bitcoin'
+	},
+	{
+		title: 'Bitcoin Price',
+		slug: 'bitcoin-price'
+	},
+	{
+		title: 'Bitcoin Wallet',
+		slug: 'bitcoin-wallet'
+	},
+	{
+		title: 'CoinCap',
+		slug: 'coincap'
+	},
+	{
+		title: 'Cryptocurrency',
+		slug: 'cryptocurrency'
+	},
+	{
+		title: 'Culture',
+		slug: 'culture'
+	},
+	{
+		title: 'DAO',
+		slug: 'dao'
+	},
+	{
+		title: 'DeFi',
+		slug: 'defi'
+	},
+	{
+		title: 'Developer',
+		slug: 'developer'
+	},
+	{
+		title: 'DEX',
+		slug: 'dex'
+	},
+	{
+		title: 'Ethereum',
+		slug: 'ethereum'
+	},
+	{
+		title: 'Finance',
+		slug: 'finance'
+	},
+	{
+		title: 'FOX Token',
+		slug: 'fox-token'
+	},
+	{
+		title: 'KeepKey',
+		slug: 'keepkey'
+	},
+	{
+		title: 'Ledger',
+		slug: 'ledger'
+	},
+	{
+		title: 'Mobile',
+		slug: 'mobile'
+	},
+	{
+		title: 'News',
+		slug: 'news'
+	},
+	{
+		title: 'Optimism',
+		slug: 'optimism'
+	},
+	{
+		title: 'Portis',
+		slug: 'portis'
+	},
+	{
+		title: 'Security',
+		slug: 'security'
+	},
+	{
+		title: 'ShapeShift',
+		slug: 'shapeshift'
+	},
+	{
+		title: 'THORChain',
+		slug: 'thorchain'
+	},
+	{
+		title: 'Trader',
+		slug: 'trader'
+	},
+	{
+		title: 'Trading',
+		slug: 'trading'
+	},
+	{
+		title: 'Trezor',
+		slug: 'trezor'
+	},
+	{
+		title: 'Wallet',
+		slug: 'wallet'
+	}
+];
+
+export function blogTagsSlugToCategory(slug: string): string {
+	return blogTags.find(tab => tab.slug === slug)?.title ?? slug;
+}
