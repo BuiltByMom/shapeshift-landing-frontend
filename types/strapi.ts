@@ -177,6 +177,7 @@ export type TBlogPost = {
 	id: number;
 	documentId: string;
 	slug: string;
+	title: string;
 	content: string;
 	createdAt: string;
 	updatedAt: string;
