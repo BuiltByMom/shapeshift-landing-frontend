@@ -1,3 +1,21 @@
+/************************************************************************************************
+ ** Main Discover Page Component:
+ **
+ ** This server component serves as the main landing page for the "Discover" section. It is
+ ** responsible for fetching the initial list of all discoverable items (e.g., features,
+ ** products, or content pieces) and then rendering them, typically using a search and filter
+ ** interface provided by a client component like `DiscoverSearchWrapper`.
+ **
+ ** Features:
+ ** - Data Fetching: Asynchronously fetches all discoverable items from the Strapi API using
+ **   the `getDiscovers` function (or a similar utility, assuming its existence based on
+ **   the context of other fetch utilities).
+ ** - Content Display: Passes the fetched discover items to the `DiscoverSearchWrapper`
+ **   component, which handles the search UI and filtered display of these items.
+ ** - Error Handling: Includes a basic check for the fetched data; if `discovers` is null (e.g.,
+ **   due to an API error or no content), it could potentially render an alternative UI or log
+ **   an error, though the provided snippet focuses on passing it to the wrapper.
+ ************************************************************************************************/
 import {Banner} from '@/components/common/Banner';
 import {Button} from '@/components/common/Button';
 import {RESOURCES_DICT} from '@/components/dictionary/resources';
@@ -7,6 +25,17 @@ import {DiscoverSearchWrapper} from './_components/DiscoverSearchWrapper';
 
 import type {ReactNode} from 'react';
 
+/************************************************************************************************
+ ** DiscoverPage Default Export:
+ **
+ ** Asynchronously renders the main "Discover" page. It fetches all discoverable items and
+ ** passes them to the `DiscoverSearchWrapper` component, which provides the user interface
+ ** for searching and viewing these items.
+ **
+ ** Returns:
+ ** - A Promise resolving to a ReactNode, specifically the `DiscoverSearchWrapper` component
+ **   populated with all fetched discover items.
+ ************************************************************************************************/
 export default async function DiscoverPage(): Promise<ReactNode> {
 	const discover = await getDiscovers();
 

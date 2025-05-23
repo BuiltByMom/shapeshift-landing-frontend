@@ -1,9 +1,9 @@
 /************************************************************************************************
  ** Trade Product Page:
- **
+
  ** Displays information about ShapeShift's trading capabilities
  ** Features a hero section, key stats, feature cards, and a grid layout of trading features
- **
+
  ** Page Structure:
  ** - Background image (desktop only)
  ** - Hero section with title, description, and CTA button
@@ -11,7 +11,7 @@
  ** - Feature cards arranged in a row
  ** - Displaced grid layout highlighting trading features
  ** - Footer banner with final call-to-action
- **
+
  ** Data:
  ** - Content fetched from Strapi CMS
  ** - Includes text content, button configurations, statistics, and images
@@ -35,7 +35,16 @@ import type {TCard} from '@/components/strapi/types';
 import type {Metadata} from 'next';
 import type {ReactNode} from 'react';
 
-// Generate metadata for SEO
+/************************************************************************************************
+ ** generateMetadata Function:
+ **
+ ** Generates metadata for the Trade page based on content fetched from Strapi.
+ ** This includes the page title, description, and Open Graph/Twitter card information for SEO.
+ **
+ ** Returns:
+ ** - A Promise resolving to a Metadata object. Returns an empty object if page data is not
+ **   found.
+ ************************************************************************************************/
 export async function generateMetadata(): Promise<Metadata> {
 	const page = await fetchTradePage();
 
@@ -68,6 +77,21 @@ export async function generateMetadata(): Promise<Metadata> {
 	};
 }
 
+/************************************************************************************************
+ ** TradePage Component:
+ **
+ ** The main default export for the Trade product page.
+ ** This asynchronous server component fetches page-specific data from the Strapi CMS using
+ ** `fetchTradePage`. It then renders the page structure, including a background image,
+ ** a `TradeHero` (which handles its own client-side CTA logic), feature cards, a displaced
+ ** grid, product statistics, and a product-specific footer banner. It also injects a JSON-LD
+ ** script for structured data (Schema.org) to enhance SEO.
+ ** If page data cannot be fetched, it triggers a 404 "Not Found" page.
+ **
+ ** Returns:
+ ** - A Promise resolving to a ReactNode representing the Trade page, or calls notFound() if
+ **   data fetching fails.
+ ************************************************************************************************/
 export default async function TradePage(): Promise<ReactNode> {
 	// Fetch page data from Strapi CMS
 	const page = await fetchTradePage();

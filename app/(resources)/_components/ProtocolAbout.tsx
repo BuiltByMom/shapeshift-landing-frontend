@@ -1,9 +1,45 @@
+/************************************************************************************************
+ ** ProtocolAbout Component:
+
+ ** This component renders a section that provides a detailed description of a specific
+ ** protocol. It typically includes the protocol's name and a paragraph of explanatory text.
+
+ ** Props:
+ ** - data: An object of type THeaderData, containing the name and description of the protocol.
+
+ ** Structure:
+ ** - A main div container with a top margin.
+ ** - A section element with a gradient background and responsive grid layout.
+ **   - An h2 heading displaying "What is [Protocol Name]".
+ **   - A div containing a paragraph with the protocol's description.
+ ************************************************************************************************/
 import type {ReactNode} from 'react';
 
+/************************************************************************************************
+ ** THeaderData Type:
+
+ ** Defines the structure for the data prop of the ProtocolAbout component.
+
+ ** Fields:
+ ** - name: The name of the protocol.
+ ** - description: A textual description of the protocol.
+ ************************************************************************************************/
 type THeaderData = {
 	name: string;
 	description: string;
 };
+
+/************************************************************************************************
+ ** ProtocolAbout Function:
+
+ ** Renders the "About" section for a given protocol, displaying its name and description.
+
+ ** Args:
+ ** - data (THeaderData): An object containing the name and description of the protocol.
+
+ ** Returns:
+ ** - ReactNode: The JSX element representing the protocol about section.
+ ************************************************************************************************/
 export function ProtocolAbout(data: THeaderData): ReactNode {
 	return (
 		<div className={'mt-4'}>

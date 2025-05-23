@@ -1,3 +1,18 @@
+/************************************************************************************************
+ ** Blog All Tags Page Component:
+ **
+ ** This client component is responsible for displaying a paginated list of all blog posts,
+ ** specifically for the main tags page (e.g., /blog/tags). While it lists all posts, it's
+ ** conceptually part of the tag navigation structure, serving as the landing page when a user
+ ** navigates to the general tags section before selecting a specific tag.
+ **
+ ** Features:
+ ** - Comprehensive Post Listing: Shows all blog posts, not filtered by any specific tag.
+ ** - Pagination: Inherits pagination from the `PostList` component.
+ ** - Configurable Page Size and Sort Order: Uses constants for page size and sort direction.
+ ** - Consistent User Experience: Provides a familiar list view even when no specific tag is
+ **   selected yet within the tags section.
+ ************************************************************************************************/
 'use client';
 
 import {Fragment, useState} from 'react';
@@ -11,9 +26,33 @@ import {useFetchPosts} from '@/hooks/useFetchPosts';
 
 import type {ReactNode} from 'react';
 
+/************************************************************************************************
+ ** PAGE_SIZE Constant:
+ **
+ ** Defines the number of posts to display per page on the all-tags blog listing.
+ ** Default value is 12.
+ ************************************************************************************************/
 const PAGE_SIZE = 12;
+
+/************************************************************************************************
+ ** SORT Constant:
+ **
+ ** Defines the sort order for the posts on the all-tags blog listing.
+ ** Default value is 'desc' (descending, i.e., newest posts first).
+ ************************************************************************************************/
 const SORT = 'desc';
 
+/************************************************************************************************
+ ** BlogList Default Export (for All Tags Page):
+ **
+ ** Renders a list of all blog posts, typically used for the main '/blog/tags' page.
+ ** It utilizes the `PostList` component, configured with `PAGE_SIZE` and `SORT` constants,
+ ** but without a specific `tag` filter, thus displaying all posts in a paginated and sorted
+ ** manner.
+ **
+ ** Returns:
+ ** - A ReactNode representing the list of all blog posts.
+ ************************************************************************************************/
 export default function BlogList(): ReactNode {
 	const [page, setPage] = useState(1);
 	const {posts, pagination, isLoading} = useFetchPosts({

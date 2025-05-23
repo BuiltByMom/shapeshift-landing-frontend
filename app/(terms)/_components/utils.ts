@@ -1,18 +1,29 @@
-/**************************************************************************************************
- ** Terms Data Utilities
- ** Provides utility functions for transforming API data to component props
- ** Separates data fetching from component rendering for better maintainability
- ** Implements proper type transformations for privacy policy and terms of service data
- ** Enforces consistent data structure between different terms pages
- **************************************************************************************************/
+/************************************************************************************************
+ ** Terms Data Transformation Utilities:
+
+ ** This module provides utility functions specifically for fetching and transforming data
+ ** related to legal documents (Privacy Policy and Terms of Service) from an API source
+ ** into a format suitable for the `TermsAccordion` component (`TTermsItemData`).
+
+ ** It encapsulates the data fetching logic (via `getPrivacyPolicy` and `getTermsOfService`)
+ ** and the mapping of API response fields to the required component prop structure.
+ ** This separation improves maintainability and keeps the presentation components clean.
+ ************************************************************************************************/
 
 import {getPrivacyPolicy, getTermsOfService} from '@/components/utils/query';
 
 import type {TTermsItemData} from '@/app/(terms)/_components/TermsAccordion';
 
-/**************************************************************************************************
- * Transforms privacy policy data from API format to component format
- **************************************************************************************************/
+/************************************************************************************************
+ ** getPrivacyPolicyItems Function:
+
+ ** Fetches privacy policy data from the API and transforms it into an array of
+ ** `TTermsItemData` objects suitable for the `TermsAccordion` component.
+
+ ** Returns:
+ ** - A Promise that resolves to an array of `TTermsItemData` for the privacy policy.
+ ** - Resolves to an empty array if fetching fails or no data is returned.
+ ************************************************************************************************/
 export async function getPrivacyPolicyItems(): Promise<TTermsItemData[]> {
 	const data = await getPrivacyPolicy();
 
@@ -28,9 +39,16 @@ export async function getPrivacyPolicyItems(): Promise<TTermsItemData[]> {
 	}));
 }
 
-/**************************************************************************************************
- * Transforms terms of service data from API format to component format
- **************************************************************************************************/
+/************************************************************************************************
+ ** getTermsOfServiceItems Function:
+
+ ** Fetches terms of service data from the API and transforms it into an array of
+ ** `TTermsItemData` objects suitable for the `TermsAccordion` component.
+
+ ** Returns:
+ ** - A Promise that resolves to an array of `TTermsItemData` for the terms of service.
+ ** - Resolves to an empty array if fetching fails or no data is returned.
+ ************************************************************************************************/
 export async function getTermsOfServiceItems(): Promise<TTermsItemData[]> {
 	const data = await getTermsOfService();
 

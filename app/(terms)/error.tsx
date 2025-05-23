@@ -1,10 +1,14 @@
-/**************************************************************************************************
- ** Terms Error Boundary Component
- ** Catches errors that occur during rendering of terms pages
- ** Provides a user-friendly error message with fallback UI
- ** Includes a retry button to attempt loading the page again
- ** Implements proper error logging using console.error
- **************************************************************************************************/
+/************************************************************************************************
+ ** Terms Error Boundary Component:
+
+ ** This component serves as an error boundary specifically for pages within the `(terms)`
+ ** route group. If an error occurs during the rendering of a terms page (e.g., Terms of
+ ** Service, Privacy Policy), this component will be displayed instead of a broken page.
+
+ ** It provides a user-friendly message, logs the error to the console for debugging purposes,
+ ** and offers a "Try again" button which attempts to re-render the page, as well as a
+ ** "Return home" button.
+ ************************************************************************************************/
 'use client';
 
 import {useEffect} from 'react';

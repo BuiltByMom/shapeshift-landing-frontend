@@ -1,19 +1,22 @@
 /************************************************************************************************
  ** FAQ Navigation Component:
- **
- ** Client-side component for sticky FAQ section navigation
- ** Highlights the active section and provides smooth scrolling
- **
+
+ ** This client-side component renders a sticky navigation sidebar for the FAQ page.
+ ** It lists all FAQ sections and highlights the currently active section based on scroll position.
+ ** Clicking a section title in the navigation will smoothly scroll the page to that section.
+
  ** Features:
- ** - Sticky positioning that follows user as they scroll
- ** - Active section highlighting based on scroll position
- ** - Smooth scrolling to sections on click
- ** - Accessibility optimized with proper ARIA attributes
- **
- ** Usage:
- ** - Use with FAQContent to provide navigation for FAQ sections
- ** - Pass sections and active section from parent component
- ** - Handle scroll behavior through provided onClick handler
+ ** - Sticky positioning: The navigation stays visible as the user scrolls (on larger screens).
+ ** - Active section highlighting: Clearly indicates which section the user is currently viewing.
+ ** - Smooth scrolling: Provides a better user experience when navigating between sections.
+ ** - Accessibility: Uses `aria-label` for the navigation and `aria-current` for the active item.
+ ** - Responsive: Hidden on smaller screens where a sticky sidebar might obstruct content.
+
+ ** Props:
+ ** - sections: An array of objects, each containing an `id` and `sectionTitle` for an FAQ section.
+ ** - activeSection: A string representing the title of the currently active FAQ section.
+ ** - onSectionClick: A callback function that is triggered when a section title is clicked.
+ **   It receives the `sectionTitle` as an argument and should handle the scroll logic.
  ************************************************************************************************/
 
 'use client';
@@ -44,6 +47,7 @@ export function FAQNavigation({sections, activeSection, onSectionClick}: TFAQNav
 				{sections.map(section => (
 					<li key={section.id}>
 						<button
+							type={'button'}
 							onClick={() => onSectionClick(section.sectionTitle)}
 							className={cl(
 								'text-left text-lg transition-all hover:text-blue',

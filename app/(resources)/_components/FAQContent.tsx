@@ -1,20 +1,36 @@
 /************************************************************************************************
  ** FAQ Content Component:
- **
- ** Interactive FAQ page with smooth scrolling navigation
- ** Displays sections of questions and answers with navigation sidebar
- **
- ** Features:
- ** - Automatic section highlighting on scroll
- ** - Smooth scroll to section on navigation click
- ** - Sticky navigation sidebar on desktop
- ** - Fully responsive layout for all devices
- **
- ** Technical Implementation:
- ** - Uses useRef to track section positions
- ** - Implements requestAnimationFrame for scroll performance
- ** - Handles manual vs. automatic scrolling intelligently
- ** - Properly implements accessibility for better user experience
+
+ ** This client component renders the main content for the FAQ page. It displays FAQ sections,
+ ** each containing a list of questions and answers (using `QuestionSection`). It also features
+ ** a sticky navigation sidebar (`FAQNavigation`) that highlights the currently viewed section
+ ** and allows for smooth scrolling to other sections.
+
+ ** State & Refs:
+ ** - `activeSection`: String, stores the title of the FAQ section currently in or nearest to view.
+ ** - `sectionRefs`: A ref object mapping section titles to their corresponding HTMLElement.
+ **   Used to calculate section positions for scroll-spy functionality.
+ ** - `isManualScrolling`: A ref boolean, true when a user clicks a nav link to scroll.
+ **   This temporarily disables automatic scroll-spy to prevent jitter.
+ ** - `rafId`: A ref for storing the ID of `requestAnimationFrame`, used for optimizing scroll events.
+
+ ** Effects & Logic:
+ ** - Scroll Handling (`useEffect`):
+ **   - Listens to window scroll events.
+ **   - Uses `requestAnimationFrame` to efficiently determine which FAQ section is closest to the
+ **     top of the viewport (with an offset for the header).
+ **   - Updates `activeSection` state to highlight the corresponding item in `FAQNavigation`.
+ **   - Skips updates if `isManualScrolling` is true.
+ ** - Section Navigation (`scrollToSection` function):
+ **   - Called when a user clicks a link in `FAQNavigation`.
+ **   - Sets `isManualScrolling` to true.
+ **   - Immediately updates `activeSection` for responsiveness.
+ **   - Calculates the target scroll position (accounting for header offset) and scrolls smoothly.
+ **   - Resets `isManualScrolling` after a timeout (allowing scroll animation to finish).
+
+ ** Props:
+ ** - `faqData`: An object of type `TFaqData` containing the title and an array of FAQ sections,
+ **   each with its own title and list of question-answer items.
  ************************************************************************************************/
 
 'use client';

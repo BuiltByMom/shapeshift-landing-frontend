@@ -1,3 +1,22 @@
+/************************************************************************************************
+ ** Supported Wallet Detail Page Component:
+ **
+ ** This server component renders a detailed page for a specific supported cryptocurrency
+ ** wallet, identified by a `slug` from the URL parameters. It fetches the wallet's specific
+ ** data from an API (likely Strapi) and displays various sections like a hero image, header,
+ ** an "Accelerate with ShapeShift" section, and an FAQ section.
+ **
+ ** Features:
+ ** - Dynamic Data Fetching: Retrieves data for the specific wallet using `getSupportedWallet`.
+ ** - Metadata Generation: The `generateMetadata` function dynamically creates SEO-friendly
+ **   metadata (title, description, keywords, Open Graph, Twitter cards) based on the wallet's
+ **   details.
+ ** - Modular Content Display: Utilizes several sub-components (`SupportedWalletHero`,
+ **   `SupportedWalletHeader`, `SupportedWalletAccelerate`, `StrapiFAQ`) to render different
+ **   parts of the page.
+ ** - Error Handling: If the wallet data cannot be fetched or the slug is invalid, it triggers
+ **   a `notFound()` response.
+ ************************************************************************************************/
 import {notFound} from 'next/navigation';
 
 import {SupportedWalletAccelerate} from '@/app/(resources)/_components/SupportedWalletAccelerate';
@@ -11,6 +30,23 @@ import type {TSupportedWalletData} from '@/components/strapi/types';
 import type {Metadata} from 'next';
 import type {ReactNode} from 'react';
 
+/************************************************************************************************
+ ** generateMetadata Function:
+ **
+ ** Asynchronously generates metadata for a specific supported wallet page. It fetches the
+ ** wallet data based on the provided `slug` from the URL parameters. If the wallet is found,
+ ** it constructs a `Metadata` object including the wallet's name in the title, a descriptive
+ ** meta description, relevant keywords, and Open Graph/Twitter card information with the
+ ** wallet's featured image.
+ **
+ ** Args:
+ ** - params: An object containing a Promise that resolves to `{ slug: string }`, where `slug`
+ **   is the identifier for the wallet.
+ **
+ ** Returns:
+ ** - A Promise resolving to a `Metadata` object for the wallet page. If the slug is missing or
+ **   the wallet is not found, it calls `notFound()`.
+ ************************************************************************************************/
 export async function generateMetadata({params}: {params: Promise<{slug: string}>}): Promise<Metadata> {
 	const {slug} = await params;
 	if (!slug) {
@@ -59,6 +95,22 @@ export async function generateMetadata({params}: {params: Promise<{slug: string}
 	};
 }
 
+/************************************************************************************************
+ ** WalletPage Default Export:
+ **
+ ** Asynchronously renders the detailed page for a specific supported wallet. It first
+ ** extracts the `slug` from the URL parameters, then fetches the corresponding wallet data
+ ** using `getSupportedWallet`. If the wallet is not found, it triggers a 404 page. Otherwise,
+ ** it renders the wallet's information using various specialized components and a general `Banner`.
+ **
+ ** Args:
+ ** - params: An object containing a Promise that resolves to `{ slug: string }`, where `slug`
+ **   is the identifier for the wallet whose page is to be rendered.
+ **
+ ** Returns:
+ ** - A Promise resolving to a ReactNode representing the full page for the specified wallet,
+ **   or calls `notFound()` if the wallet data cannot be retrieved.
+ ************************************************************************************************/
 export default async function WalletPage({params}: {params: Promise<{slug: string}>}): Promise<ReactNode> {
 	const {slug} = await params;
 	const wallet = await getSupportedWallet(slug);

@@ -1,23 +1,50 @@
 /************************************************************************************************
- ** ResourceGrid Component:
- **
- ** A reusable grid component for displaying resource items in a consistent format
- ** Provides standardized layout, loading states, and empty states
- **
- ** Features:
- ** - Responsive grid layout with configurable columns
- ** - Consistent empty and loading states
- ** - Flexible content rendering via children prop
- ** - Type-safe implementation
- **
- ** Usage:
- ** - Import for any resource listing that requires a grid layout
- ** - Pass isLoading prop to show loading state
- ** - Pass items array and renderItem function to customize display
+ ** ResourceGrid Component & TResourceGridProps Type:
+
+ ** This file defines the generic `ResourceGrid` component and its `TResourceGridProps` type.
+ ** It is designed for displaying a responsive grid of items with standardized loading and
+ ** empty state handling.
+
+ ** `TResourceGridProps<T>` Type:
+ ** - A generic type defining the props for the `ResourceGrid` component.
+ ** - Type Parameter `T`: Represents the type of items the grid will render.
+ ** - Fields:
+ **   - items: An array of items of type `T`, or `null`/`undefined`.
+ **   - renderItem: A function that takes an item of type `T` and its index, returning a
+ **     `ReactNode` for that item's display in the grid.
+ **   - isLoading: Optional boolean, true if data is loading (defaults to `false`).
+ **   - emptyMessage: Optional string for the empty state (defaults to "No items available
+ **     yet.").
+ **   - className: Optional string for additional CSS classes on the grid container.
+
+ ** `ResourceGrid<T>` Function:
+ ** - A reusable component for displaying items in a grid.
+ ** - Handles loading states by showing a placeholder.
+ ** - Handles empty states by displaying the `emptyMessage`.
+ ** - Allows custom rendering of each item via the `renderItem` prop.
+ ** - The grid layout is responsive (md:grid-cols-2, lg:grid-cols-3).
  ************************************************************************************************/
 
 import type {ReactElement, ReactNode} from 'react';
 
+/************************************************************************************************
+ ** TResourceGridProps Type:
+
+ ** Defines the props for the generic `ResourceGrid` component.
+
+ ** Type Parameters:
+ ** - T: The type of items that the grid will render.
+
+ ** Fields:
+ ** - items: An array of items of type `T`, or `null`/`undefined` if no items are available.
+ ** - renderItem: A function that takes an item of type `T` and its index, and returns a
+ **   `ReactNode` representing how that item should be rendered in the grid.
+ ** - isLoading: Optional boolean flag indicating if the data for the grid is currently loading.
+ **   Defaults to `false`.
+ ** - emptyMessage: Optional string message to display when the `items` array is empty or null.
+ **   Defaults to "No items available yet.".
+ ** - className: Optional string for applying additional CSS classes to the grid container.
+ ************************************************************************************************/
 type TResourceGridProps<T> = {
 	items: T[] | null | undefined;
 	renderItem: (item: T, index: number) => ReactNode;
@@ -26,6 +53,25 @@ type TResourceGridProps<T> = {
 	className?: string;
 };
 
+/************************************************************************************************
+ ** ResourceGrid Function:
+
+ ** A generic and reusable component for displaying a grid of items. It handles loading states
+ ** and empty states, and allows for custom rendering of each item through the `renderItem` prop.
+
+ ** Type Parameters:
+ ** - T: The type of the items being rendered in the grid.
+
+ ** Args:
+ ** - items (T[] | null | undefined): The array of items to display.
+ ** - renderItem ((item: T, index: number) => ReactNode): Function to render each item.
+ ** - isLoading (boolean, optional): Whether the grid is in a loading state.
+ ** - emptyMessage (string, optional): Message to display when there are no items.
+ ** - className (string, optional): Additional CSS classes for the grid container.
+
+ ** Returns:
+ ** - ReactNode: The JSX element representing the resource grid, or a loading/empty state.
+ ************************************************************************************************/
 export function ResourceGrid<T>({
 	items,
 	renderItem,

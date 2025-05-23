@@ -1,3 +1,20 @@
+/************************************************************************************************
+ ** Blog Tag-Filtered List of Posts Component:
+ **
+ ** This client component is responsible for displaying a paginated list of blog posts that
+ ** are filtered by a specific tag. The tag is provided as a prop.
+ **
+ ** Features:
+ ** - Tag-Based Filtering: Fetches and displays only posts associated with the given tag.
+ ** - Pagination: Inherits pagination capabilities from the `PostList` component.
+ ** - Configurable Page Size and Sort Order: Uses predefined constants for page size and sort
+ **   direction, but these could be customized if needed.
+ ** - Clear Empty State: Provides a user-friendly message if no posts are found for the
+ **   specified tag.
+ **
+ ** Props:
+ ** - `tag`: A string representing the tag slug to filter posts by.
+ ************************************************************************************************/
 'use client';
 
 import {Fragment, useState} from 'react';
@@ -12,8 +29,36 @@ import {useFetchPosts} from '@/hooks/useFetchPosts';
 import type {TBlogPost} from '@/components/strapi/types';
 import type {ReactElement} from 'react';
 
+/************************************************************************************************
+ ** PAGE_SIZE Constant:
+ **
+ ** Defines the number of posts to display per page in the tag-filtered list.
+ ** Default value is 12.
+ ************************************************************************************************/
 const PAGE_SIZE = 12;
+
+/************************************************************************************************
+ ** SORT Constant:
+ **
+ ** Defines the sort order for the posts in the tag-filtered list.
+ ** Default value is 'desc' (descending, i.e., newest posts first).
+ ************************************************************************************************/
 const SORT = 'desc';
+
+/************************************************************************************************
+ ** ListOfPosts Function:
+ **
+ ** Renders a list of blog posts filtered by the provided tag slug. It utilizes the
+ ** `PostList` component, passing the `tag` prop to it, along with configured `PAGE_SIZE`
+ ** and `SORT` parameters. This allows for a paginated and sorted display of posts relevant
+ ** to the specified tag.
+ **
+ ** Args:
+ ** - props: An object containing `tag` (string) - the slug of the tag for which to display posts.
+ **
+ ** Returns:
+ ** - A ReactElement representing the list of posts for the given tag.
+ ************************************************************************************************/
 export function ListOfPosts(props: {tag: string}): ReactElement {
 	const {tag} = props;
 	const [page, setPage] = useState(1);

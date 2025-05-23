@@ -1,10 +1,11 @@
-/**************************************************************************************************
- ** Terms Loading Component
- ** Displayed while terms pages are loading
- ** Implements skeleton UI pattern for a better user experience
- ** Matches the layout of the actual terms pages for a smoother transition
- ** Uses animation to indicate loading state
- **************************************************************************************************/
+/************************************************************************************************
+ ** TermsLoading Component:
+
+ ** This component provides a loading skeleton UI that is displayed while the content for
+ ** the terms and conditions or privacy policy pages is being fetched.
+ ** It mimics the basic layout of the actual terms pages to create a smoother transition
+ ** for the user. The animation indicates that content is actively being loaded.
+ ************************************************************************************************/
 
 import type {ReactNode} from 'react';
 

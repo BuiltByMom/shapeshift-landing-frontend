@@ -1,18 +1,29 @@
 /************************************************************************************************
  ** Resources Fetch Utilities:
- **
- ** Centralized utilities for fetching data from Strapi API for resource pages
- ** Provides standardized error handling and data fetching patterns
- **
- ** Features:
- ** - Type-safe fetch functions for different resource types
- ** - Consistent error handling and caching strategy
- ** - Standardized response format
- **
- ** Usage:
- ** - Import and use in page components to fetch data
- ** - Pass specific filters to retrieve targeted content
- ** - Handle null returns with appropriate UI (usually notFound)
+
+ ** This module provides a suite of centralized utility functions for fetching data from the
+ ** Strapi API, specifically tailored for the "Resources" section of the application (e.g., blog,
+ ** newsroom, FAQs, supported chains/protocols/wallets, discover pages). It standardizes API
+ ** request configurations, error handling, and caching strategies to ensure consistency and
+ ** maintainability when retrieving resource-related content.
+
+ ** Key Features:
+ ** - Type-Safe Fetch Functions: Each function (e.g., `fetchAllProtocols`, `fetchDiscoverBySlug`)
+ **   is designed to return data adhering to specific TypeScript types, enhancing code safety.
+ ** - Standardized API Configuration: Utilizes a common `apiConfig` object for headers
+ **   (including Authorization with a Bearer token) and Next.js caching options (revalidate
+ **   every 1 hour).
+ ** - Consistent Error Handling: Implements try-catch blocks for network or API errors, logging
+ **   detailed messages to the console and typically returning `null` to allow calling code
+ **   to handle failures gracefully (e.g., by showing a "not found" page).
+ ** - Specific Endpoint Functions: Provides dedicated functions for fetching different types of
+ **   resource data, such as all protocols, all chains, all wallets, specific discover pages
+ **   by slug, and FAQ data.
+
+ ** Usage Pattern:
+ ** - These utility functions are typically imported and used within Next.js page components
+ **   (Server Components) or `generateMetadata` functions to fetch necessary data.
+ ** - Calling code should check for `null` return values to handle cases where data fetching fails.
  ************************************************************************************************/
 
 import type {
@@ -23,7 +34,21 @@ import type {
 	TSupportedWalletData
 } from '@/components/strapi/types';
 
-// Common headers and cache configuration
+/************************************************************************************************
+ ** apiConfig Constant:
+
+ ** An object containing common configuration settings for API fetch requests made within this
+ ** module. It standardizes how API calls are made to the Strapi backend.
+
+ ** Properties:
+ ** - `headers`: An object specifying request headers.
+ **   - `Authorization`: A Bearer token for authenticating with the Strapi API, sourced from
+ **     the `STRAPI_API_TOKEN` environment variable.
+ ** - `next`: An object containing Next.js specific fetch options.
+ **   - `revalidate`: Sets the cache revalidation period to 3600 seconds (1 hour), meaning
+ **     Next.js will attempt to re-fetch the data at most once every hour, serving cached
+ **     data in between.
+ ************************************************************************************************/
 const apiConfig = {
 	headers: {
 		Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`
@@ -34,9 +59,16 @@ const apiConfig = {
 };
 
 /************************************************************************************************
- * Fetch all Protocols
- *
- * @returns Promise resolving to array of protocol data or null if error
+ ** fetchAllProtocols Function:
+
+ ** Asynchronously fetches a list of all supported protocols from the Strapi API.
+ ** It uses the '/api/supported-protocols' endpoint and populates all related fields ('*').
+ ** The request is configured using `apiConfig` for headers and caching.
+
+ ** Returns:
+ ** - A Promise that resolves to an array of `TSupportedProtocolData` objects if successful.
+ ** - Resolves to `null` if the fetch operation fails (e.g., network error, non-OK HTTP status).
+ **   An error message is logged to the console in case of failure.
  ************************************************************************************************/
 export async function fetchAllProtocols(): Promise<TSupportedProtocolData[] | null> {
 	try {
@@ -56,9 +88,16 @@ export async function fetchAllProtocols(): Promise<TSupportedProtocolData[] | nu
 }
 
 /************************************************************************************************
- * Fetch all Chains
- *
- * @returns Promise resolving to array of chain data or null if error
+ ** fetchAllChains Function:
+
+ ** Asynchronously fetches a list of all supported blockchain chains from the Strapi API.
+ ** It targets the '/api/supported-chains' endpoint and populates all related fields ('*').
+ ** Utilizes `apiConfig` for consistent request headers and caching policy.
+
+ ** Returns:
+ ** - A Promise that resolves to an array of `TSupportedChainData` objects on success.
+ ** - Resolves to `null` if the fetch fails (e.g., network issue, non-2xx response status).
+ **   Logs an error to the console upon failure.
  ************************************************************************************************/
 export async function fetchAllChains(): Promise<TSupportedChainData[] | null> {
 	try {
@@ -78,9 +117,17 @@ export async function fetchAllChains(): Promise<TSupportedChainData[] | null> {
 }
 
 /************************************************************************************************
- * Fetch all Wallets
- *
- * @returns Promise resolving to array of wallet data or null if error
+ ** fetchAllWallets Function:
+
+ ** Asynchronously fetches a list of all supported wallets from the Strapi API.
+ ** This function queries the '/api/supported-wallets' endpoint, ensuring all linked fields
+ ** are populated ('*'). It employs `apiConfig` for request headers and caching.
+
+ ** Returns:
+ ** - A Promise that resolves to an array of `TSupportedWalletData` objects if the request is
+ **   successful.
+ ** - Resolves to `null` in case of a fetch error (e.g., network problem, non-successful HTTP
+ **   response). An error message is logged to the console on failure.
  ************************************************************************************************/
 export async function fetchAllWallets(): Promise<TSupportedWalletData[] | null> {
 	try {
@@ -100,10 +147,20 @@ export async function fetchAllWallets(): Promise<TSupportedWalletData[] | null> 
 }
 
 /************************************************************************************************
- * Fetch Discover data by slug
- *
- * @param slug - Slug of the discover page to fetch
- * @returns Promise resolving to discover data or null if not found
+ ** fetchDiscoverBySlug Function:
+
+ ** Asynchronously fetches data for a specific "Discover" page from the Strapi API, identified
+ ** by its slug.
+ ** It queries the '/api/discovers' endpoint, filtering by the provided `slug` and populating
+ ** specific fields related to features, images, and CTAs. Uses `apiConfig`.
+
+ ** Args:
+ ** - slug (string): The slug of the "Discover" page to retrieve.
+
+ ** Returns:
+ ** - A Promise that resolves to a `TDiscoverData` object if found and fetched successfully.
+ ** - Resolves to `null` if the discover page is not found, or if any error occurs during
+ **   the fetch (e.g., network error, non-OK HTTP status). Errors are logged to the console.
  ************************************************************************************************/
 export async function fetchDiscoverBySlug(slug: string): Promise<TDiscoverData | null> {
 	try {
@@ -129,9 +186,16 @@ export async function fetchDiscoverBySlug(slug: string): Promise<TDiscoverData |
 }
 
 /************************************************************************************************
- * Fetch FAQ data
- *
- * @returns Promise resolving to FAQ data or null if not found
+ ** fetchFaqData Function:
+
+ ** Asynchronously fetches the FAQ (Frequently Asked Questions) data from the Strapi API.
+ ** It targets the '/api/faq' endpoint and populates nested fields for FAQ sections and their
+ ** individual items. The request is configured using `apiConfig`.
+
+ ** Returns:
+ ** - A Promise that resolves to a `TFaqData` object containing all FAQ content if successful.
+ ** - Resolves to `null` if the fetch operation encounters an error (e.g., network issues,
+ **   non-OK HTTP response). Errors are logged to the console.
  ************************************************************************************************/
 export async function fetchFaqData(): Promise<TFaqData | null> {
 	try {

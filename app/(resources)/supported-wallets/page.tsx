@@ -1,28 +1,29 @@
 /************************************************************************************************
- ** Supported Wallets Page:
+ ** Supported Wallets Page Component:
  **
- ** Main landing page for all compatible wallets that work with ShapeShift
- ** Displays a visual grid of supported wallet options
+ ** This server component serves as the main page for the "Supported Wallets" section. It
+ ** fetches a list of all supported wallets from an API (likely Strapi) and displays them.
+ ** The page includes a header, a search/filter wrapper, and a banner.
  **
  ** Features:
- ** - Reusable ResourceHeader component for consistent UI
- ** - Server-side data fetching with error handling
- ** - Visual wallet grid with logos and descriptions
- ** - Responsive layout for all screen sizes
- **
- ** Technical Implementation:
- ** - Uses Next.js server components for data fetching
- ** - Leverages WalletList component for wallet display
- ** - Implements descriptive section headings for better accessibility
+ ** - Data Fetching: Asynchronously fetches all supported wallet data using `fetchAllWallets`.
+ ** - Content Display: Uses `ResourceHeader` to display a title and description for the page.
+ ** - Search and Filtering: Integrates the `WalletSearchWrapper` component, which allows users
+ **   to search for wallets by name and potentially filter them (though filtering logic is
+ **   encapsulated within `WalletSearchWrapper`).
+ ** - Fallback/Error Handling: If wallet data cannot be fetched, it gracefully returns null,
+ **   which might be handled by a parent error boundary or a `notFound()` call depending on
+ **   the broader application structure (though not explicitly shown here for `fetchAllWallets`).
+ ** - Banner: Includes a `Banner` component, likely for general calls-to-action or information.
  ************************************************************************************************/
 
+import {ResourceHeader} from '@/app/(resources)/_components/ResourceHeader';
+import {fetchAllWallets} from '@/app/(resources)/_utils/fetchUtils';
 import {Banner} from '@/components/common/Banner';
 import {requestWalletUrl} from '@/components/constants';
 import {WalletRequestCard} from '@/components/WalletRequestCard';
 
-import {ResourceHeader} from '../_components/ResourceHeader';
 import {WalletSearchWrapper} from './_components/WalletSearchWrapper';
-import {fetchAllWallets} from '../_utils/fetchUtils';
 
 import type {ReactNode} from 'react';
 
@@ -38,11 +39,24 @@ const pageContent = {
 	}
 };
 
+/************************************************************************************************
+ ** WalletPage Default Export:
+ **
+ ** Asynchronously renders the main page for listing supported wallets. It fetches all wallet
+ ** data and then passes this data to the `WalletSearchWrapper` for display, which includes
+ ** search and potentially filter capabilities. The page also includes a `ResourceHeader` and a
+ ** `Banner`.
+ **
+ ** Returns:
+ ** - A Promise resolving to a ReactNode representing the supported wallets page. Returns
+ **   `null` if the initial fetch of all wallets fails, which should ideally be handled by a
+ **   higher-level error component or a `notFound` mechanism if appropriate.
+ ************************************************************************************************/
 export default async function WalletPage(): Promise<ReactNode> {
 	// Fetch wallets data
 	const wallets = await fetchAllWallets();
 
-	// Handle loading and error states
+	// Handle case where wallets data is not found or empty
 	if (!wallets) {
 		return (
 			<div className={'mt-[120px] flex w-full justify-center text-center lg:mt-60'}>

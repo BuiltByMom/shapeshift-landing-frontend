@@ -2,16 +2,16 @@
 
 /************************************************************************************************
  ** PostList Component:
- **
+
  ** Client component for displaying paginated lists of blog or news posts
  ** Features interactive pagination and loading states
- **
+
  ** Features:
  ** - Pagination with next/previous controls
  ** - Loading skeleton for better UX
  ** - Empty state handling
  ** - Responsive grid layout for different viewports
- **
+
  ** Usage:
  ** - Import in blog or newsroom list pages
  ** - Configure with useFetchPosts or useFetchNewsroom hooks
@@ -32,6 +32,11 @@ import {DEFAULT_PAGINATION} from '../_utils/constants';
 import type {TBlogPost} from '@/components/strapi/types';
 import type {ReactNode} from 'react';
 
+/************************************************************************************************
+ ** TPostListProps Type:
+ **
+ ** Defines the props for the `PostList` component.
+ ************************************************************************************************/
 type TPostListProps = {
 	pageSize?: number;
 	sort?: 'asc' | 'desc';
@@ -44,6 +49,13 @@ type TPostListProps = {
 	gridClassName?: string;
 };
 
+/************************************************************************************************
+ ** PostList Function:
+ **
+ ** Renders a paginated list of blog or news posts. It handles data fetching via the
+ ** `useFetchPosts` hook, displays loading states, empty states, the list of posts, and
+ ** pagination controls.
+ ************************************************************************************************/
 export function PostList({
 	pageSize = DEFAULT_PAGINATION.PAGE_SIZE,
 	sort = DEFAULT_PAGINATION.SORT,

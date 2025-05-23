@@ -1,3 +1,23 @@
+/************************************************************************************************
+ ** Newsroom Category Posts List Component:
+ **
+ ** This client-side component is responsible for displaying a list of newsroom posts filtered
+ ** by a specific category. The category slug is passed as a prop. It leverages the generic
+ ** `PostList` component to handle the actual fetching, pagination, and rendering of posts.
+ **
+ ** Features:
+ ** - Category-Specific Filtering: Ensures that only posts belonging to the specified newsroom
+ **   category are displayed.
+ ** - Reusability: Uses the shared `PostList` component for consistency in display and
+ **   functionality (e.g., pagination, loading states, empty states).
+ ** - Category Name Formatting: Converts the category slug to a display-friendly, capitalized
+ **   format for use in messages (e.g., empty state message).
+ ** - Dynamic Empty State Message: Provides a context-aware message if no posts are found in
+ **   the specified category.
+ **
+ ** Props:
+ ** - `category`: A string representing the slug of the newsroom category to filter posts by.
+ ************************************************************************************************/
 'use client';
 
 import {Fragment, useState} from 'react';
@@ -14,6 +34,23 @@ import type {ReactElement} from 'react';
 
 const PAGE_SIZE = 12;
 const SORT = 'desc';
+
+/************************************************************************************************
+ ** ListOfPosts Function:
+ **
+ ** Renders a list of newsroom posts filtered by the provided category slug. It utilizes the
+ ** `PostList` component, passing the `category` prop (after converting the slug to the
+ ** appropriate category type via `newsroomCategoriesSlugToCategory`) and a custom
+ ** `emptyMessage`. This allows for a paginated display of posts belonging to the specified
+ ** newsroom category.
+ **
+ ** Args:
+ ** - props: An object containing `category` (string) - the slug of the newsroom category for
+ **   which to display posts.
+ **
+ ** Returns:
+ ** - A ReactElement representing the list of newsroom posts for the given category.
+ ************************************************************************************************/
 export function ListOfPosts(props: {category: string}): ReactElement {
 	const {category} = props;
 	const [page, setPage] = useState(1);

@@ -1,19 +1,40 @@
 /************************************************************************************************
- ** ResourceHeader Component:
- **
- ** A versatile, reusable header component for resource pages
- ** Displays title, description, feature badges, and optional CTA button
- **
- ** Features:
- ** - Responsive design for mobile and desktop layouts
- ** - Configurable badge items with check icons
- ** - Optional CTA button with customizable text and URL
- ** - Supports SEO-friendly heading structure
- **
- ** Usage:
- ** - Import in any resource page that needs a consistent header
- ** - Configure with title, description, feature items
- ** - Optionally add CTA button and custom classes
+ ** ResourceHeader Component & TResourceHeaderProps Type:
+
+ ** This file defines the `ResourceHeader` component and its `TResourceHeaderProps` type.
+ ** It serves as a versatile and reusable header for various resource pages, displaying a title,
+ ** description, feature badges, and an optional Call-to-Action (CTA) button. It can also
+ ** display a logo.
+
+ ** `TResourceHeaderProps` Type:
+
+ ** Defines the properties accepted by the `ResourceHeader` component.
+
+ ** Fields:
+ ** - title: The main title for the header.
+ ** - description: A descriptive text displayed below the title.
+ ** - items: An array of strings, each rendered as a feature badge with a check icon
+ **   (visible on desktop).
+ ** - ctaButton: Optional. An object with `text` and `url` for a Call-to-Action button.
+ ** - className: Optional. Additional CSS classes for the section container.
+ ** - titlePrefix: Optional. A string to prepend to the main title.
+ ** - hasLogo: Optional. Boolean to indicate if a logo should be displayed. Defaults to false.
+ ** - logoUrl: Optional. URL of the logo image if `hasLogo` is true.
+ ** - logoWidth: Optional. Width of the logo image.
+ ** - logoHeight: Optional. Height of the logo image.
+ ** - logoAlt: Optional. Alt text for the logo image.
+
+ ** `ResourceHeader` Function:
+
+ ** Renders a versatile and reusable header for various resource pages. It displays a title,
+ ** description, feature badges, an optional Call-to-Action (CTA) button, and an optional logo.
+
+ ** Args:
+ ** - props (TResourceHeaderProps): An object containing the properties to configure the header,
+ **   such as title, description, items for badges, CTA button details, and logo information.
+
+ ** Returns:
+ ** - ReactNode: The JSX element representing the resource header section.
  ************************************************************************************************/
 
 import Image from 'next/image';

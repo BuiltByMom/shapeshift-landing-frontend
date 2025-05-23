@@ -1,3 +1,19 @@
+/************************************************************************************************
+ ** BlogPost Components:
+ **
+ ** This file contains components related to displaying blog posts, including a general
+ ** `BlogPost` component for individual posts, and specialized sub-components like
+ ** `FeaturedPost` for highlighting a specific post and `PostCard` for a compact card view.
+ **
+ ** Features:
+ ** - Versatile Display: Offers different ways to present blog posts (full, featured, card).
+ ** - Content Truncation: `PostCard` can truncate long summaries for a cleaner look.
+ ** - Image Handling: Displays featured images for posts.
+ ** - Metadata Display: Shows post title, publication date, and tags.
+ ** - Client-Side Navigation: Uses Next.js `Link` for navigating to individual post pages.
+ ************************************************************************************************/
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import {useMemo} from 'react';
@@ -5,7 +21,7 @@ import {useMemo} from 'react';
 import {cl} from './utils/cl';
 
 import type {TBlogPost} from '@/components/strapi/types';
-import type {ReactNode} from 'react';
+import type {ReactElement, ReactNode} from 'react';
 
 /********************************************************************************************
  * Blog Post Card Component
@@ -46,6 +62,17 @@ export function BlogPost({
 	);
 }
 
+/************************************************************************************************
+ ** FeaturedPost Sub-Component:
+
+ ** Renders a blog post in a "featured" style, typically larger and more prominent than regular
+ ** posts. It displays the post's featured image, title, publication date, and tags.
+ ** Clicking the post navigates to its full page.
+
+ ** Props:
+ ** - post (TBlogPost): The blog post data to display.
+ ** - className (string, optional): Additional CSS classes for the main container.
+ ************************************************************************************************/
 function FeaturedPost({post, className}: {post: TBlogPost; className?: string}): ReactNode {
 	const formatDate = useMemo(
 		() =>
@@ -90,7 +117,17 @@ function FeaturedPost({post, className}: {post: TBlogPost; className?: string}):
 	);
 }
 
-function PostCard({post, className}: {post: TBlogPost; className?: string}): ReactNode {
+/************************************************************************************************
+ ** PostCard Sub-Component:
+ **
+ ** Renders a blog post as a compact card. It shows the featured image, title, a truncated
+ ** summary, and the publication date. Ideal for lists or grids of posts.
+ **
+ ** Props:
+ ** - post (TBlogPost): The blog post data.
+ ** - className (string, optional): Additional CSS classes.
+ ************************************************************************************************/
+function PostCard({post, className}: {post: TBlogPost; className?: string}): ReactElement {
 	/********************************************************************************************
 	 * Memo: Creates a date formatting function
 	 * No dependencies as it's a static function

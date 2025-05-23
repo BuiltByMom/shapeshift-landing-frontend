@@ -1,3 +1,24 @@
+/************************************************************************************************
+ ** Individual Blog Post Page Component:
+ **
+ ** This server component is responsible for rendering a single blog post page. It fetches the
+ ** content for a specific blog post based on its slug (obtained from the URL parameters)
+ ** and then displays this content using the `BlogContent` component. It also handles loading
+ ** and error states gracefully.
+ **
+ ** Features:
+ ** - Dynamic Content Fetching: Retrieves blog post data by slug using `useFetchPosts`.
+ ** - Content Rendering: Uses `BlogContent` to display the fetched post HTML.
+ ** - Loading State: Displays a `BlogSkeleton` component while the post data is being fetched.
+ ** - Error Handling: If the post is not found (e.g., invalid slug or API error), it triggers
+ **   a 404 "Not Found" page using Next.js's `notFound()` function.
+ ** - SEO: Injects a JSON-LD script for `BlogPosting` schema to improve search engine
+ **   visibility.
+ **
+ ** Props:
+ ** - `params`: An object containing route parameters, expected to have a `slug` property which
+ **   is a string representing the unique identifier of the blog post.
+ ************************************************************************************************/
 'use client';
 
 import 'highlight.js/styles/github-dark.css';
@@ -15,8 +36,21 @@ import {useFetchPosts} from '@/hooks/useFetchPosts';
 
 import type {ReactNode} from 'react';
 
+/************************************************************************************************
+ ** BlogPost Default Export:
+ **
+ ** Asynchronously renders an individual blog post page. It fetches the post data based on the
+ ** slug from the URL parameters. While loading, it shows a `BlogSkeleton`. If the post is
+ ** found, it displays the content using `BlogContent` and includes a JSON-LD script for SEO.
+ ** If the post is not found, it redirects to a 404 page.
+ **
+ ** Returns:
+ ** - A Promise resolving to a ReactNode representing the blog post page, or calls `notFound()`
+ **   if the post data cannot be fetched.
+ ************************************************************************************************/
 export default function BlogPost(): ReactNode {
-	const {slug} = useParams();
+	const params = useParams();
+	const slug = params.slug as string;
 
 	const {
 		cachedResponse: {data: cachedPosts}
@@ -27,7 +61,7 @@ export default function BlogPost(): ReactNode {
 		sort: 'desc',
 		populateContent: true,
 		cachePosts: true,
-		slug: slug as string,
+		slug: slug,
 		skip: !!cachedPosts.find(p => p.slug === slug)
 	});
 

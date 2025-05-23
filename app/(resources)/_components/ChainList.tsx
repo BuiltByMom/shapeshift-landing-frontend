@@ -1,17 +1,21 @@
 /************************************************************************************************
  ** ChainList Component:
- **
- ** A specialized component for displaying blockchain network grids
- ** Uses ResourceGrid and ResourceCard for consistent display
- **
- ** Features:
- ** - Optimized for blockchain data structure
- ** - Consistent loading and empty states
- ** - Type-safe implementation with proper TS typing
- **
- ** Usage:
- ** - Import in any page that needs to display blockchain network lists
- ** - Pass chains data and optional loading state
+
+ ** This component is responsible for rendering a grid of supported blockchain networks (chains).
+ ** It utilizes the generic `ResourceGrid` and `ResourceCard` components to display each chain.
+
+ ** Purpose & Features:
+ ** - Displays a list of blockchain networks, each with its name, description, and logo.
+ ** - Handles loading states by showing a skeleton UI (via `ResourceGrid`).
+ ** - Shows an appropriate message if no chains are available or if a search yields no results.
+ ** - Each chain card links to a dedicated page for that chain (e.g., `/supported-chains/[slug]`)
+
+ ** Props:
+ ** - chains: An array of `TSupportedChainData` objects, or null if data is not yet loaded.
+ ** - isLoading: Optional boolean, true if data is currently being fetched.
+ ** - className: Optional string for additional CSS classes on the grid container.
+ ** - isSearchQuery: Optional boolean, true if the list is a result of a search query,
+ **   affecting the empty state message.
  ************************************************************************************************/
 
 import {ResourceCard} from '@/app/(resources)/_components/ResourceCard';

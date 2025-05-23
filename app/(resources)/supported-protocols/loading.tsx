@@ -1,14 +1,14 @@
 /************************************************************************************************
  ** Protocols Page:
- **
+
  ** Main landing page for supported protocols
  ** Displays a list of all protocols supported by ShapeShift
- **
+
  ** Features:
  ** - Reusable components for consistent UI
  ** - Server-side data fetching with error handling
  ** - Responsive layout for all screen sizes
- **
+
  ** Technical Implementation:
  ** - Uses Next.js server components for data fetching
  ** - Leverages ResourceHeader for consistent header structure

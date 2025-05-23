@@ -1,3 +1,27 @@
+/************************************************************************************************
+ ** ProtocolFeatures Component & Subcomponents:
+
+ ** This file defines the `ProtocolFeatures` main component and several specialized
+ ** subcomponents (`OgPlatformFeature`, `MobileAppFeature`, `GetPaidToTradeFeature`,
+ ** `PortalsFeature`). Together, they render a section showcasing various key features
+ ** and benefits related to a protocol or ShapeShift's interaction with it.
+
+ ** - `ProtocolFeatures`: The main exported component that orchestrates the display of
+ **   individual feature blocks. It takes a `description` prop which is passed to the
+ **   `OgPlatformFeature`.
+ ** - Feature Subcomponents: Each subcomponent (`OgPlatformFeature`, `MobileAppFeature`, etc.)
+ **   is responsible for rendering a specific feature block. They typically include a title,
+ **   descriptive text, relevant images or GIFs, and sometimes call-to-action buttons or links.
+ **   They use an `index` prop to alternate layout (e.g., image on left vs. right).
+
+ ** Styling & Layout:
+ ** - Uses Tailwind CSS for styling and responsive design.
+ ** - Employs a grid layout for the main `ProtocolFeatures` container.
+ ** - Individual feature blocks often use a flexbox layout that adapts between row (desktop)
+ **   and column (mobile) orientations.
+ ** - Background images are used for visual appeal in some sections.
+ ** - `cl` utility is used for conditional class names.
+ ************************************************************************************************/
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -6,6 +30,18 @@ import {cl} from '@/components/utils/cl';
 
 import type {ReactNode} from 'react';
 
+/************************************************************************************************
+ ** OgPlatformFeature Component:
+
+ ** Renders a feature block highlighting Original DeFi Platform integrations.
+
+ ** Args:
+ ** - description (string): The descriptive text for this feature.
+ ** - index (number): An index used to determine layout alternation (e.g., image left/right).
+
+ ** Returns:
+ ** - ReactNode: The JSX element representing the OG Platform feature section.
+ ************************************************************************************************/
 function OgPlatformFeature({description, index}: {description: string; index: number}): ReactNode {
 	return (
 		<div
@@ -44,6 +80,19 @@ function OgPlatformFeature({description, index}: {description: string; index: nu
 		</div>
 	);
 }
+
+/************************************************************************************************
+ ** MobileAppFeature Component:
+
+ ** Renders a feature block promoting the ShapeShift mobile application.
+ ** Includes links to supported chains and app store download buttons.
+
+ ** Args:
+ ** - index (number): An index used to determine layout alternation.
+
+ ** Returns:
+ ** - ReactNode: The JSX element representing the Mobile App feature section.
+ ************************************************************************************************/
 function MobileAppFeature({index}: {index: number}): ReactNode {
 	return (
 		<div
@@ -135,6 +184,18 @@ function MobileAppFeature({index}: {index: number}): ReactNode {
 		</div>
 	);
 }
+
+/************************************************************************************************
+ ** GetPaidToTradeFeature Component:
+
+ ** Renders a feature block about earning rewards (rFOX) by trading on ShapeShift.
+
+ ** Args:
+ ** - index (number): An index used to determine layout alternation.
+
+ ** Returns:
+ ** - ReactNode: The JSX element representing the Get Paid To Trade feature section.
+ ************************************************************************************************/
 function GetPaidToTradeFeature({index}: {index: number}): ReactNode {
 	return (
 		<div
@@ -176,6 +237,19 @@ function GetPaidToTradeFeature({index}: {index: number}): ReactNode {
 		</div>
 	);
 }
+
+/************************************************************************************************
+ ** PortalsFeature Component:
+
+ ** Renders a feature block explaining that ShapeShift's "Shifts" are powered by Portals,
+ ** emphasizing optimized trading.
+
+ ** Args:
+ ** - index (number): An index used to determine layout alternation.
+
+ ** Returns:
+ ** - ReactNode: The JSX element representing the Portals feature section.
+ ************************************************************************************************/
 function PortalsFeature({index}: {index: number}): ReactNode {
 	return (
 		<div
@@ -220,6 +294,19 @@ function PortalsFeature({index}: {index: number}): ReactNode {
 	);
 }
 
+/************************************************************************************************
+ ** ProtocolFeatures Function:
+
+ ** The main component that assembles and displays various protocol-related features.
+ ** It renders a sequence of specialized feature blocks.
+
+ ** Args:
+ ** - description (string): A description passed to the `OgPlatformFeature` component,
+ **   likely related to the overall protocol or its integration with OG DeFi platforms.
+
+ ** Returns:
+ ** - ReactNode: The JSX element representing the entire protocol features section.
+ ************************************************************************************************/
 export function ProtocolFeatures({description}: {description: string}): ReactNode {
 	return (
 		<div className={'mt-40 grid gap-x-[120px] gap-y-40 lg:grid-cols-1'}>

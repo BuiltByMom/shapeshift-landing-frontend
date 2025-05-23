@@ -1,16 +1,25 @@
-/**************************************************************************************************
- ** Terms Layout Component
- ** Shared layout for all pages in the (terms) route group
- ** Provides consistent structure and styling for terms of service and privacy policy pages
- ** Includes proper SEO metadata for search engine optimization
- ** Sets up responsive container layout with consistent spacing
- **************************************************************************************************/
+/************************************************************************************************
+ ** Terms Section Layout Component:
+
+ ** This component defines the shared layout for all pages within the `(terms)` route group,
+ ** such as the Terms of Service and Privacy Policy pages.
+ ** It ensures a consistent structure, styling, and includes a common footer banner.
+
+ ** It also exports `metadata` for this group of pages, providing default SEO and
+ ** OpenGraph information.
+ ************************************************************************************************/
 
 import {Banner} from '@/components/common/Banner';
 
 import type {Metadata} from 'next';
 import type {ReactNode} from 'react';
 
+/************************************************************************************************
+ ** metadata Constant:
+
+ ** Default metadata for pages within the (terms) route group.
+ ** Provides title, description, and OpenGraph tags for SEO and social sharing.
+ ************************************************************************************************/
 export const metadata: Metadata = {
 	title: 'Legal Documents | ShapeShift',
 	description: 'ShapeShift privacy policy and terms of service documents.',
@@ -28,6 +37,15 @@ type TTermsLayoutProps = {
 	children: ReactNode;
 };
 
+/************************************************************************************************
+ ** TermsLayout Component:
+
+ ** The main layout component for the terms pages.
+ ** Wraps the page content and adds a standard `Banner` component at the bottom.
+
+ ** Props:
+ ** - children: The React nodes representing the content of the specific terms page.
+ ************************************************************************************************/
 export default function TermsLayout({children}: TTermsLayoutProps): ReactNode {
 	return (
 		<>

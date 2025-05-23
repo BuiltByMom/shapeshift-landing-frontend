@@ -35,6 +35,16 @@ import {cl} from '@/components/utils/cl';
 import type {TCard} from '@/components/strapi/types';
 import type {ReactNode} from 'react';
 
+/************************************************************************************************
+ ** HomePage Component:
+
+ ** The main landing page for the ShapeShift application.
+ ** Features a hero section with a trading widget, informational cards,
+ ** tabbed feature displays, and links to blog posts and a community banner.
+
+ ** State:
+ ** - tab: Manages the currently selected tab for the feature display section.
+ ************************************************************************************************/
 export default function HomePage(): ReactNode {
 	const [tab, setTab] = useState(homepageFeatureTabs[0]);
 	return (
@@ -141,6 +151,7 @@ export default function HomePage(): ReactNode {
 								{homepageFeatureTabs.map((item: string) => (
 									<button
 										key={item}
+										type={'button'}
 										onClick={() => setTab(item)}>
 										<TabItem
 											className={'!px-10'}
@@ -232,9 +243,9 @@ export default function HomePage(): ReactNode {
 						</Card>
 						<Card className={'col-span-1 row-span-1 flex items-center bg-secondBg lg:col-span-3'}>
 							<Carousel pauseOnHover>
-								{Object.values(carouselLogos).map(({Logo, href}, index) => (
+								{Object.values(carouselLogos).map(({Logo, href}) => (
 									<div
-										key={index}
+										key={href}
 										className={'mx-10'}>
 										<Link
 											href={href}
@@ -285,6 +296,18 @@ export default function HomePage(): ReactNode {
 	);
 }
 
+/************************************************************************************************
+ ** Card Component (Local to HomePage):
+
+ ** A simple presentational component used within the HomePage to display
+ ** content in a card-like structure. Can optionally be a link.
+
+ ** Props:
+ ** - children: The content to be rendered inside the card.
+ ** - className: Additional CSS classes for styling.
+ ** - href: Optional URL to make the card a clickable link.
+ ** - target: Optional target attribute for the link (e.g., '_blank').
+ ************************************************************************************************/
 const Card = ({
 	children,
 	className,

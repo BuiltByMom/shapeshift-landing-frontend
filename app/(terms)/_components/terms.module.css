@@ -1,10 +1,26 @@
-/**************************************************************************************************
-** CSS Module for Terms Pages
-** Provides consistent styling for blog-like content across privacy policy and terms of service
-** Replaces global styles with module-scoped CSS
-** Contains styles for common elements like code blocks, footnotes, and definition lists
-**************************************************************************************************/
+/************************************************************************************************
+ ** Terms Page CSS Modules:
+ **
+ ** This CSS module file provides styles specifically for the terms and conditions, privacy
+ ** policy, and similar legal document pages. It ensures consistent formatting for rich text
+ ** content that might be rendered from Markdown or HTML fetched from a CMS.
+ **
+ ** Key Styled Elements:
+ ** - `.blogContent`: Base container for the rich text, setting font size, line height, color.
+ ** - `pre`: Styles for preformatted text blocks (code blocks), including background, padding,
+ **   border-radius, and overflow handling.
+ ** - `.footnotes`: Styles for footnote sections.
+ ** - `dl, dt, dd`: Styles for definition lists.
+ ** - `.warning`: A custom class for warning or notice blocks.
+ ** - `p, strong, img`: Basic styling for paragraphs, bold text, and images within the content.
+ ************************************************************************************************/
 
+/************************************************************************************************
+ ** .blogContent Styles:
+ **
+ ** Base styling for the main content area of terms pages.
+ ** Ensures readable typography and consistent text appearance.
+ ************************************************************************************************/
 .blogContent {
 	/* Base styles */
 	font-size: 1.125rem;
@@ -12,6 +28,13 @@
 	color: #e5e7eb;
 }
 
+/************************************************************************************************
+ ** pre (Code Block) Styles:
+ **
+ ** Styles for preformatted text, typically used for displaying code snippets or similar
+ ** verbatim text. Includes background, padding, rounded corners, and horizontal scroll for
+ ** long lines.
+ ************************************************************************************************/
 /* Code blocks */
 .blogContent pre {
 	background-color: #1f2937;
@@ -22,6 +45,12 @@
 	position: relative;
 }
 
+/************************************************************************************************
+ ** .footnotes Styles:
+ **
+ ** Styles for the footnotes section, often used for citations or additional information at the
+ ** end of a document.
+ ************************************************************************************************/
 /* Footnotes */
 .blogContent .footnotes {
 	border-top: 1px solid #374151;
@@ -33,6 +62,11 @@
 	font-size: 0.875rem;
 }
 
+/************************************************************************************************
+ ** dl, dt, dd (Definition List) Styles:
+ **
+ ** Styles for definition lists, allowing for clear presentation of terms and their definitions.
+ ************************************************************************************************/
 /* Definition lists */
 .blogContent dl {
 	margin: 1.5rem 0;
@@ -47,6 +81,12 @@
 	margin-left: 1.5rem;
 }
 
+/************************************************************************************************
+ ** .warning Styles:
+ **
+ ** Custom styles for creating distinct warning or notice blocks within the content, typically
+ ** with a different background and border to draw attention.
+ ************************************************************************************************/
 /* Custom containers */
 .blogContent .warning {
 	background-color: #fef3c7;
@@ -56,6 +96,12 @@
 	color: #92400e;
 }
 
+/************************************************************************************************
+ ** p, strong, img (Basic Element) Styles:
+ **
+ ** Basic styling adjustments for common HTML elements like paragraphs, bold text, and images
+ ** to ensure they fit well within the overall design of the terms pages.
+ ************************************************************************************************/
 .blogContent p {
 	margin-bottom: 16px;
 }
