@@ -9,7 +9,7 @@ import type {ReactNode} from 'react';
 
 /********************************************************************************************
  * Notification System Component
- *
+
  * Manages different types of notifications (modal, banner, popup) fetched from Strapi CMS.
  * Handles state management for showing/hiding different notification types.
  ********************************************************************************************/

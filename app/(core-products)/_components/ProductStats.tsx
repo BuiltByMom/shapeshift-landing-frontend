@@ -1,19 +1,19 @@
 /************************************************************************************************
- ** ProductStats Component:
+ * ProductStats Component:
 
- ** Displays a row of key statistics/metrics for product pages
- ** Used specifically by the Trade product to highlight important numbers
+ * Displays a row of key statistics/metrics for product pages
+ * Used specifically by the Trade product to highlight important numbers
 
- ** Features:
- ** - Flexible layout for displaying multiple statistics
- ** - Responsive design that adapts to mobile and desktop viewports
- ** - Consistent styling with prominent values and explanatory labels
- ** - Handles empty or missing data gracefully
+ * Features:
+ * - Flexible layout for displaying multiple statistics
+ * - Responsive design that adapts to mobile and desktop viewports
+ * - Consistent styling with prominent values and explanatory labels
+ * - Handles empty or missing data gracefully
 
- ** Usage:
- ** - Import and use on product pages that need to display key metrics
- ** - Pass an array of stats with title and value properties
- ** - Stats will be arranged in a row (desktop) or column (mobile)
+ * Usage:
+ * - Import and use on product pages that need to display key metrics
+ * - Pass an array of stats with title and value properties
+ * - Stats will be arranged in a row (desktop) or column (mobile)
  ************************************************************************************************/
 
 import type {TStat} from '@/components/strapi/types';

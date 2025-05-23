@@ -9,19 +9,19 @@ import type {Metadata} from 'next';
  ************************************************************************************************/
 
 /************************************************************************************************
- ** generateMetadata Function:
- **
- ** Asynchronously generates metadata for a specific blog post page. It fetches the blog post
- ** data using its slug from the route parameters. Based on the fetched data, it constructs
- ** metadata including the page title, description, and Open Graph/Twitter card details (like
- ** title, description, and image). If the post is not found, it returns an empty metadata
- ** object.
- **
- ** Args:
- ** - params: An object containing `slug` (string) of the blog post.
- **
- ** Returns:
- ** - A Promise resolving to a `Metadata` object for the blog post page.
+ * generateMetadata Function:
+
+ * Asynchronously generates metadata for a specific blog post page. It fetches the blog post
+ * data using its slug from the route parameters. Based on the fetched data, it constructs
+ * metadata including the page title, description, and Open Graph/Twitter card details (like
+ * title, description, and image). If the post is not found, it returns an empty metadata
+ * object.
+
+ * Args:
+ * - params: An object containing `slug` (string) of the blog post.
+
+ * Returns:
+ * - A Promise resolving to a `Metadata` object for the blog post page.
  ************************************************************************************************/
 export async function generateMetadata({params}: {params: Promise<{slug: string}>}): Promise<Metadata> {
 	const {slug} = await params;
@@ -72,18 +72,18 @@ export async function generateMetadata({params}: {params: Promise<{slug: string}
 }
 
 /************************************************************************************************
- ** BlogPostLayout Default Export:
- **
- ** Provides the layout structure for individual blog post pages. This component wraps the
- ** actual content of a blog post (`children`) within a styled main container. It typically
- ** includes a banner at the bottom of the page.
- **
- ** Args:
- ** - children (ReactNode): The content of the individual blog post to be rendered within this
- **   layout.
- **
- ** Returns:
- ** - A ReactNode representing the layout for a single blog post.
+ * BlogPostLayout Default Export:
+
+ * Provides the layout structure for individual blog post pages. This component wraps the
+ * actual content of a blog post (`children`) within a styled main container. It typically
+ * includes a banner at the bottom of the page.
+
+ * Args:
+ * - children (ReactNode): The content of the individual blog post to be rendered within this
+ *   layout.
+
+ * Returns:
+ * - A ReactNode representing the layout for a single blog post.
  ************************************************************************************************/
 export default function BlogPostLayout({children}: {children: React.ReactNode}): React.ReactNode {
 	return children;

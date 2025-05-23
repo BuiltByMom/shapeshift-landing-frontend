@@ -2,25 +2,25 @@
 
 import {Button} from '@/components/common/Button';
 /************************************************************************************************
- ** TradeHero Component:
+ * TradeHero Component:
 
- ** This client-side component renders the hero section specifically for the Trade product page.
- ** It displays the product title, description, a call-to-action (CTA) button, and a featured
- ** image. The component is interactive, handling the CTA button click client-side.
+ * This client-side component renders the hero section specifically for the Trade product page.
+ * It displays the product title, description, a call-to-action (CTA) button, and a featured
+ * image. The component is interactive, handling the CTA button click client-side.
 
- ** Features:
- ** - Client-side interactivity for the CTA button, opening the link in a new tab securely.
- ** - Responsive design using a picture element for optimal image display across devices.
- ** - Accessibility considerations with `aria-labelledby` for the section and `aria-label` for
- ** - Client-side interactivity for button clicks
- ** - Responsive image handling with picture element
- ** - Integration with stats display
- ** - Enhanced accessibility with proper ARIA attributes
- ** - Improved error handling with nullish coalescing
+ * Features:
+ * - Client-side interactivity for the CTA button, opening the link in a new tab securely.
+ * - Responsive design using a picture element for optimal image display across devices.
+ * - Accessibility considerations with `aria-labelledby` for the section and `aria-label` for
+ * - Client-side interactivity for button clicks
+ * - Responsive image handling with picture element
+ * - Integration with stats display
+ * - Enhanced accessibility with proper ARIA attributes
+ * - Improved error handling with nullish coalescing
 
- ** Usage:
- ** - Used specifically on the Trade product page
- ** - Requires 'use client' directive for client-side interactivity
+ * Usage:
+ * - Used specifically on the Trade product page
+ * - Requires 'use client' directive for client-side interactivity
  ************************************************************************************************/
 
 import type {TButton} from '@/components/strapi/types';

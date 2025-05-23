@@ -1,19 +1,19 @@
 /************************************************************************************************
- ** Discover Detail Page:
+ * Discover Detail Page:
 
- ** Displays detailed information about a specific discovery item
- ** Shows header with key features, hero banner, and feature details
+ * Displays detailed information about a specific discovery item
+ * Shows header with key features, hero banner, and feature details
 
- ** Features:
- ** - Dynamic metadata generation for SEO
- ** - Responsive layout with feature grid
- ** - Proper error handling with notFound()
- ** - Uses shared components for consistent layout
+ * Features:
+ * - Dynamic metadata generation for SEO
+ * - Responsive layout with feature grid
+ * - Proper error handling with notFound()
+ * - Uses shared components for consistent layout
 
- ** Data Flow:
- ** - Fetches data based on slug parameter
- ** - Populates page with discover details from Strapi CMS
- ** - Generates metadata for SEO and social sharing
+ * Data Flow:
+ * - Fetches data based on slug parameter
+ * - Populates page with discover details from Strapi CMS
+ * - Generates metadata for SEO and social sharing
  ************************************************************************************************/
 
 import {notFound} from 'next/navigation';
@@ -29,18 +29,18 @@ import type {Metadata} from 'next';
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** generateMetadata Function:
- **
- ** Asynchronously generates metadata for a specific "Discover" detail page. It fetches the
- ** page data based on the slug from the route parameters. This metadata includes the page
- ** title, description, and Open Graph/Twitter card information (title, description, image).
- ** If the page data is not found, it returns an empty metadata object.
- **
- ** Args:
- ** - params: An object containing `slug` (string) of the discover page.
- **
- ** Returns:
- ** - A Promise resolving to a `Metadata` object for the discover detail page.
+ * generateMetadata Function:
+
+ * Asynchronously generates metadata for a specific "Discover" detail page. It fetches the
+ * page data based on the slug from the route parameters. This metadata includes the page
+ * title, description, and Open Graph/Twitter card information (title, description, image).
+ * If the page data is not found, it returns an empty metadata object.
+
+ * Args:
+ * - params: An object containing `slug` (string) of the discover page.
+
+ * Returns:
+ * - A Promise resolving to a `Metadata` object for the discover detail page.
  ************************************************************************************************/
 export async function generateMetadata({params}: {params: Promise<{slug: string}>}): Promise<Metadata> {
 	const {slug} = await params;
@@ -88,20 +88,20 @@ export async function generateMetadata({params}: {params: Promise<{slug: string}
 }
 
 /************************************************************************************************
- ** DiscoverDetailPage Default Export:
- **
- ** Asynchronously renders the content for a specific "Discover" detail page. It fetches the
- ** page data using the slug from route parameters via `fetchDiscoverBySlug`. If data is found,
- ** it displays a hero section with the title and description, followed by a detailed feature
- ** section using the `DiscoverFeature` component. It also injects a JSON-LD script for product
- ** schema SEO. If the page is not found, it triggers a 404 page.
- **
- ** Args:
- ** - params: An object containing `slug` (string) of the discover page.
- **
- ** Returns:
- ** - A Promise resolving to a ReactNode representing the discover detail page, or calls
- **   `notFound()` if data fetching fails.
+ * DiscoverDetailPage Default Export:
+
+ * Asynchronously renders the content for a specific "Discover" detail page. It fetches the
+ * page data using the slug from route parameters via `fetchDiscoverBySlug`. If data is found,
+ * it displays a hero section with the title and description, followed by a detailed feature
+ * section using the `DiscoverFeature` component. It also injects a JSON-LD script for product
+ * schema SEO. If the page is not found, it triggers a 404 page.
+
+ * Args:
+ * - params: An object containing `slug` (string) of the discover page.
+
+ * Returns:
+ * - A Promise resolving to a ReactNode representing the discover detail page, or calls
+ *   `notFound()` if data fetching fails.
  ************************************************************************************************/
 export default async function DiscoverDetailPage({params}: {params: Promise<{slug: string}>}): Promise<ReactNode> {
 	// Extract slug from params

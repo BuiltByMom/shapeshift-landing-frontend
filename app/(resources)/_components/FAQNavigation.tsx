@@ -1,22 +1,22 @@
 /************************************************************************************************
- ** FAQ Navigation Component:
+ * FAQ Navigation Component:
 
- ** This client-side component renders a sticky navigation sidebar for the FAQ page.
- ** It lists all FAQ sections and highlights the currently active section based on scroll position.
- ** Clicking a section title in the navigation will smoothly scroll the page to that section.
+ * This client-side component renders a sticky navigation sidebar for the FAQ page.
+ * It lists all FAQ sections and highlights the currently active section based on scroll position.
+ * Clicking a section title in the navigation will smoothly scroll the page to that section.
 
- ** Features:
- ** - Sticky positioning: The navigation stays visible as the user scrolls (on larger screens).
- ** - Active section highlighting: Clearly indicates which section the user is currently viewing.
- ** - Smooth scrolling: Provides a better user experience when navigating between sections.
- ** - Accessibility: Uses `aria-label` for the navigation and `aria-current` for the active item.
- ** - Responsive: Hidden on smaller screens where a sticky sidebar might obstruct content.
+ * Features:
+ * - Sticky positioning: The navigation stays visible as the user scrolls (on larger screens).
+ * - Active section highlighting: Clearly indicates which section the user is currently viewing.
+ * - Smooth scrolling: Provides a better user experience when navigating between sections.
+ * - Accessibility: Uses `aria-label` for the navigation and `aria-current` for the active item.
+ * - Responsive: Hidden on smaller screens where a sticky sidebar might obstruct content.
 
- ** Props:
- ** - sections: An array of objects, each containing an `id` and `sectionTitle` for an FAQ section.
- ** - activeSection: A string representing the title of the currently active FAQ section.
- ** - onSectionClick: A callback function that is triggered when a section title is clicked.
- **   It receives the `sectionTitle` as an argument and should handle the scroll logic.
+ * Props:
+ * - sections: An array of objects, each containing an `id` and `sectionTitle` for an FAQ section.
+ * - activeSection: A string representing the title of the currently active FAQ section.
+ * - onSectionClick: A callback function that is triggered when a section title is clicked.
+ *   It receives the `sectionTitle` as an argument and should handle the scroll logic.
  ************************************************************************************************/
 
 'use client';

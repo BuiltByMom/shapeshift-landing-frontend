@@ -8,26 +8,26 @@ import {IconTrade} from '@/components/common/icons/IconTrade';
 import type {ReactNode, SVGProps} from 'react';
 
 /************************************************************************************************
- ** SupportedWalletAccelerate Component & ACCELERATE_WITH_SHAPESHIFT_DATA Constant:
- **
- ** This file defines the `SupportedWalletAccelerate` component, which displays a section
- ** highlighting key features and benefits of using ShapeShift. It also defines the
- ** `ACCELERATE_WITH_SHAPESHIFT_DATA` constant, an array of objects providing the data for
- ** these features (title, description, and icon). The component aims to encourage user
- ** engagement by showcasing the platform's advantages.
+ * SupportedWalletAccelerate Component & ACCELERATE_WITH_SHAPESHIFT_DATA Constant:
+
+ * This file defines the `SupportedWalletAccelerate` component, which displays a section
+ * highlighting key features and benefits of using ShapeShift. It also defines the
+ * `ACCELERATE_WITH_SHAPESHIFT_DATA` constant, an array of objects providing the data for
+ * these features (title, description, and icon). The component aims to encourage user
+ * engagement by showcasing the platform's advantages.
  ************************************************************************************************/
 
 /************************************************************************************************
- ** ACCELERATE_WITH_SHAPESHIFT_DATA Constant:
- **
- ** An array of objects, each representing a key feature or benefit of using ShapeShift.
- ** This data is used by the `SupportedWalletAccelerate` component to render its content.
- **
- ** Each object in the array contains:
- ** - `title`: The title of the feature (e.g., "Trade", "Save", "Earn").
- ** - `description`: A short explanation of the feature.
- ** - `icon`: A functional component that renders an SVG icon representing the feature.
- **   These icons are imported from `@/components/common/icons/`.
+ * ACCELERATE_WITH_SHAPESHIFT_DATA Constant:
+
+ * An array of objects, each representing a key feature or benefit of using ShapeShift.
+ * This data is used by the `SupportedWalletAccelerate` component to render its content.
+
+ * Each object in the array contains:
+ * - `title`: The title of the feature (e.g., "Trade", "Save", "Earn").
+ * - `description`: A short explanation of the feature.
+ * - `icon`: A functional component that renders an SVG icon representing the feature.
+ *   These icons are imported from `@/components/common/icons/`.
  ************************************************************************************************/
 const ACCELERATE_WITH_SHAPESHIFT_DATA = [
 	{
@@ -65,14 +65,14 @@ const ACCELERATE_WITH_SHAPESHIFT_DATA = [
 ];
 
 /************************************************************************************************
- ** SupportedWalletAccelerate Function:
- **
- ** Renders a section titled "Accelerate with ShapeShift". This component maps over the
- ** `ACCELERATE_WITH_SHAPESHIFT_DATA` array to display each feature in a responsive grid layout.
- ** Each feature item includes its icon, title, and description, styled with Tailwind CSS.
- **
- ** Returns:
- ** - ReactNode: The JSX element representing the "Accelerate with ShapeShift" section.
+ * SupportedWalletAccelerate Function:
+
+ * Renders a section titled "Accelerate with ShapeShift". This component maps over the
+ * `ACCELERATE_WITH_SHAPESHIFT_DATA` array to display each feature in a responsive grid layout.
+ * Each feature item includes its icon, title, and description, styled with Tailwind CSS.
+
+ * Returns:
+ * - ReactNode: The JSX element representing the "Accelerate with ShapeShift" section.
  ************************************************************************************************/
 export function SupportedWalletAccelerate(): ReactNode {
 	return (

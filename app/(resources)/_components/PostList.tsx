@@ -1,21 +1,21 @@
 'use client';
 
 /************************************************************************************************
- ** PostList Component:
+ * PostList Component:
 
- ** Client component for displaying paginated lists of blog or news posts
- ** Features interactive pagination and loading states
+ * Client component for displaying paginated lists of blog or news posts
+ * Features interactive pagination and loading states
 
- ** Features:
- ** - Pagination with next/previous controls
- ** - Loading skeleton for better UX
- ** - Empty state handling
- ** - Responsive grid layout for different viewports
+ * Features:
+ * - Pagination with next/previous controls
+ * - Loading skeleton for better UX
+ * - Empty state handling
+ * - Responsive grid layout for different viewports
 
- ** Usage:
- ** - Import in blog or newsroom list pages
- ** - Configure with useFetchPosts or useFetchNewsroom hooks
- ** - Add custom empty state message if needed
+ * Usage:
+ * - Import in blog or newsroom list pages
+ * - Configure with useFetchPosts or useFetchNewsroom hooks
+ * - Add custom empty state message if needed
  ************************************************************************************************/
 
 import {Fragment, useState} from 'react';
@@ -33,9 +33,9 @@ import type {TBlogPost} from '@/components/strapi/types';
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** TPostListProps Type:
- **
- ** Defines the props for the `PostList` component.
+ * TPostListProps Type:
+
+ * Defines the props for the `PostList` component.
  ************************************************************************************************/
 type TPostListProps = {
 	pageSize?: number;
@@ -50,11 +50,11 @@ type TPostListProps = {
 };
 
 /************************************************************************************************
- ** PostList Function:
- **
- ** Renders a paginated list of blog or news posts. It handles data fetching via the
- ** `useFetchPosts` hook, displays loading states, empty states, the list of posts, and
- ** pagination controls.
+ * PostList Function:
+
+ * Renders a paginated list of blog or news posts. It handles data fetching via the
+ * `useFetchPosts` hook, displays loading states, empty states, the list of posts, and
+ * pagination controls.
  ************************************************************************************************/
 export function PostList({
 	pageSize = DEFAULT_PAGINATION.PAGE_SIZE,

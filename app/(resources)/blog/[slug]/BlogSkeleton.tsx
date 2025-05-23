@@ -1,34 +1,34 @@
 /************************************************************************************************
- ** Blog Post Skeleton Loader Component:
- **
- ** This component provides a visual placeholder (skeleton loader) for an individual blog post
- ** page while its content is being fetched. It mimics the structure of a typical blog post,
- ** including placeholders for a title, metadata (like date or author), and several paragraphs
- ** of content. This improves the user experience by reducing perceived load times and providing
- ** immediate visual feedback.
- **
- ** Structure:
- ** - A main container div with responsive padding and max-width.
- ** - Animated pulse divs representing:
- **   - A large block for the main title.
- **   - A smaller block for metadata.
- **   - Several lines of varying widths to simulate paragraphs of text.
- ** - All placeholder elements use a consistent background color and pulsing animation to
- **   indicate loading activity.
+ * Blog Post Skeleton Loader Component:
+
+ * This component provides a visual placeholder (skeleton loader) for an individual blog post
+ * page while its content is being fetched. It mimics the structure of a typical blog post,
+ * including placeholders for a title, metadata (like date or author), and several paragraphs
+ * of content. This improves the user experience by reducing perceived load times and providing
+ * immediate visual feedback.
+
+ * Structure:
+ * - A main container div with responsive padding and max-width.
+ * - Animated pulse divs representing:
+ *   - A large block for the main title.
+ *   - A smaller block for metadata.
+ *   - Several lines of varying widths to simulate paragraphs of text.
+ * - All placeholder elements use a consistent background color and pulsing animation to
+ *   indicate loading activity.
  ************************************************************************************************/
 
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** BlogSkeleton Function:
- **
- ** Renders a skeleton loading UI for a single blog post page. This is typically displayed
- ** while the actual content of the blog post is being fetched and prepared for rendering.
- ** The skeleton includes placeholders for a title, metadata, and multiple paragraphs of text,
- ** all with a pulsing animation.
- **
- ** Returns:
- ** - A ReactNode representing the visual skeleton of a blog post page.
+ * BlogSkeleton Function:
+
+ * Renders a skeleton loading UI for a single blog post page. This is typically displayed
+ * while the actual content of the blog post is being fetched and prepared for rendering.
+ * The skeleton includes placeholders for a title, metadata, and multiple paragraphs of text,
+ * all with a pulsing animation.
+
+ * Returns:
+ * - A ReactNode representing the visual skeleton of a blog post page.
  ************************************************************************************************/
 export function BlogSkeleton(): ReactNode {
 	return (

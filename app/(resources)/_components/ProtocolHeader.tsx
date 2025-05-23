@@ -7,43 +7,43 @@ import {IconCheck} from '@/components/common/icons/IconCheck';
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** ProtocolHeader Component & THeaderData Type:
- **
- ** This file defines the `ProtocolHeader` component and its associated `THeaderData` type.
- ** The component is responsible for rendering the header section of a protocol page.
- **
- ** `THeaderData` Type:
- ** - Defines the structure for the data prop of the `ProtocolHeader` component.
- ** - Fields:
- **   - description: A string describing the protocol (currently unused but part of the type).
- **   - items: An array of strings, each representing a feature/benefit badge.
- **   - url: The URL string for the protocol's logo image.
- **   - width: The width of the protocol's logo image.
- **   - height: The height of the protocol's logo image.
- **   - name: The name of the protocol.
- **
- ** `ProtocolHeader` Function:
- ** - Renders the header section for a protocol page.
- ** - Displays feature badges (desktop only), the protocol name with a tagline, a general
- **   description about ShapeShift's integration, a "Get Started" CTA button, and a hero image
- **   with the protocol's logo overlaid.
- ** - Uses `IconCheck` for feature badges.
- ** - Uses Next.js `Image` component for optimized image loading.
+ * ProtocolHeader Component & THeaderData Type:
+
+ * This file defines the `ProtocolHeader` component and its associated `THeaderData` type.
+ * The component is responsible for rendering the header section of a protocol page.
+
+ * `THeaderData` Type:
+ * - Defines the structure for the data prop of the `ProtocolHeader` component.
+ * - Fields:
+ *   - description: A string describing the protocol (currently unused but part of the type).
+ *   - items: An array of strings, each representing a feature/benefit badge.
+ *   - url: The URL string for the protocol's logo image.
+ *   - width: The width of the protocol's logo image.
+ *   - height: The height of the protocol's logo image.
+ *   - name: The name of the protocol.
+
+ * `ProtocolHeader` Function:
+ * - Renders the header section for a protocol page.
+ * - Displays feature badges (desktop only), the protocol name with a tagline, a general
+ *   description about ShapeShift's integration, a "Get Started" CTA button, and a hero image
+ *   with the protocol's logo overlaid.
+ * - Uses `IconCheck` for feature badges.
+ * - Uses Next.js `Image` component for optimized image loading.
  ************************************************************************************************/
 
 /************************************************************************************************
- ** THeaderData Type:
+ * THeaderData Type:
 
- ** Defines the structure for the data prop of the `ProtocolHeader` component.
+ * Defines the structure for the data prop of the `ProtocolHeader` component.
 
- ** Fields:
- ** - description: A string describing the protocol (though currently unused in the component,
- **   it's part of the type, perhaps for future use or consistency).
- ** - items: An array of strings, where each string is a feature/benefit to be displayed as a badge.
- ** - url: The URL string for the protocol's logo image.
- ** - width: The width of the protocol's logo image.
- ** - height: The height of the protocol's logo image.
- ** - name: The name of the protocol.
+ * Fields:
+ * - description: A string describing the protocol (though currently unused in the component,
+ *   it's part of the type, perhaps for future use or consistency).
+ * - items: An array of strings, where each string is a feature/benefit to be displayed as a badge.
+ * - url: The URL string for the protocol's logo image.
+ * - width: The width of the protocol's logo image.
+ * - height: The height of the protocol's logo image.
+ * - name: The name of the protocol.
  ************************************************************************************************/
 type THeaderData = {
 	description: string;
@@ -55,16 +55,16 @@ type THeaderData = {
 };
 
 /************************************************************************************************
- ** ProtocolHeader Function:
+ * ProtocolHeader Function:
 
- ** Renders the header section for a protocol page, including its name, features,
- ** a call-to-action, and a hero image with the protocol logo.
+ * Renders the header section for a protocol page, including its name, features,
+ * a call-to-action, and a hero image with the protocol logo.
 
- ** Args:
- ** - data (THeaderData): An object containing the necessary data to populate the header.
+ * Args:
+ * - data (THeaderData): An object containing the necessary data to populate the header.
 
- ** Returns:
- ** - ReactNode: The JSX element representing the protocol header.
+ * Returns:
+ * - ReactNode: The JSX element representing the protocol header.
  ************************************************************************************************/
 export function ProtocolHeader(data: THeaderData): ReactNode {
 	return (

@@ -1,34 +1,34 @@
 /************************************************************************************************
- ** ProtocolEasier Component:
+ * ProtocolEasier Component:
 
- ** This component highlights how ShapeShift simplifies interactions with a given protocol,
- ** contrasting it with the complexities of traditional methods. It emphasizes the benefits
- ** of using "Shifts" within ShapeShift for managing protocol-related assets.
+ * This component highlights how ShapeShift simplifies interactions with a given protocol,
+ * contrasting it with the complexities of traditional methods. It emphasizes the benefits
+ * of using "Shifts" within ShapeShift for managing protocol-related assets.
 
- ** Props:
- ** - protocolName: The name of the protocol being featured.
+ * Props:
+ * - protocolName: The name of the protocol being featured.
 
- ** Structure:
- ** - A main container div with a background image and responsive grid layout.
- ** - Three distinct sections within the grid:
- **   1. "[ProtocolName] shouldn't be difficult": Explains the problem ShapeShift solves.
- **   2. "Why Shifts?": Details the advantages of using Shifts for the protocol.
- **   3. "It's easier with ShapeShift": A concluding statement.
- ** - Each section has specific text content and styling.
+ * Structure:
+ * - A main container div with a background image and responsive grid layout.
+ * - Three distinct sections within the grid:
+ *   1. "[ProtocolName] shouldn't be difficult": Explains the problem ShapeShift solves.
+ *   2. "Why Shifts?": Details the advantages of using Shifts for the protocol.
+ *   3. "It's easier with ShapeShift": A concluding statement.
+ * - Each section has specific text content and styling.
  ************************************************************************************************/
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** ProtocolEasier Function:
+ * ProtocolEasier Function:
 
- ** Renders a section explaining how ShapeShift makes interacting with a specific protocol easier
- ** through its "Shifts" feature.
+ * Renders a section explaining how ShapeShift makes interacting with a specific protocol easier
+ * through its "Shifts" feature.
 
- ** Args:
- ** - protocolName (string): The name of the protocol to be featured in the text.
+ * Args:
+ * - protocolName (string): The name of the protocol to be featured in the text.
 
- ** Returns:
- ** - ReactNode: The JSX element representing the "Protocol Easier" section.
+ * Returns:
+ * - ReactNode: The JSX element representing the "Protocol Easier" section.
  ************************************************************************************************/
 export function ProtocolEasier({protocolName}: {protocolName: string}): ReactNode {
 	return (

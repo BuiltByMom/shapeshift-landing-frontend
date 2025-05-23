@@ -1,23 +1,23 @@
 /************************************************************************************************
- ** Individual Newsroom Post Page Component:
- **
- ** This client-side component is responsible for fetching and rendering the content of a
- ** single newsroom post, identified by its slug from the URL parameters. It handles loading
- ** states, displays the post content (either as HTML or Markdown), and includes navigation
- ** back to the main newsroom.
- **
- ** Features:
- ** - Dynamic Content Fetching: Uses `useParams` to get the post slug and `useFetchNewsroom`
- **   (with `useCachedNews` for potential caching) to retrieve the specific post data.
- ** - Loading State: Displays a `LoadingSkeleton` while the post data is being fetched.
- ** - Content Rendering: Uses a `NewsroomContent` sub-component to render the post body. This
- **   sub-component can handle both direct HTML content and Markdown (with syntax highlighting,
- **   math, emoji support via `ReactMarkdown` and various plugins).
- ** - Image Display: Shows a featured image for the post if available.
- ** - Metadata Display: Shows post title, publication date, and tags.
- ** - Navigation: Includes a "Back to Newsroom" link and a `Banner` at the end.
- ** - Error Handling: If the post is not found (e.g., `useFetchNewsroom` returns no post for
- **   the slug), it triggers a `notFound()` response.
+ * Individual Newsroom Post Page Component:
+
+ * This client-side component is responsible for fetching and rendering the content of a
+ * single newsroom post, identified by its slug from the URL parameters. It handles loading
+ * states, displays the post content (either as HTML or Markdown), and includes navigation
+ * back to the main newsroom.
+
+ * Features:
+ * - Dynamic Content Fetching: Uses `useParams` to get the post slug and `useFetchNewsroom`
+ *   (with `useCachedNews` for potential caching) to retrieve the specific post data.
+ * - Loading State: Displays a `LoadingSkeleton` while the post data is being fetched.
+ * - Content Rendering: Uses a `NewsroomContent` sub-component to render the post body. This
+ *   sub-component can handle both direct HTML content and Markdown (with syntax highlighting,
+ *   math, emoji support via `ReactMarkdown` and various plugins).
+ * - Image Display: Shows a featured image for the post if available.
+ * - Metadata Display: Shows post title, publication date, and tags.
+ * - Navigation: Includes a "Back to Newsroom" link and a `Banner` at the end.
+ * - Error Handling: If the post is not found (e.g., `useFetchNewsroom` returns no post for
+ *   the slug), it triggers a `notFound()` response.
  ************************************************************************************************/
 'use client';
 
@@ -40,18 +40,18 @@ import {useFetchNewsroom} from '@/hooks/useFetchNewsroom';
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** LoadingSkeleton Component:
- **
- ** Provides a visual placeholder UI that mimics the structure of a newsroom post page while
- ** the actual content is loading. This improves perceived performance and user experience.
- **
- ** Structure:
- ** - A container with animated pulse elements representing the back button, date, tags, title,
- **   and several lines of content.
- ** - Uses Tailwind CSS for styling, including `animate-pulse` and background colors.
- **
- ** Returns:
- ** - A ReactNode representing the loading skeleton.
+ * LoadingSkeleton Component:
+
+ * Provides a visual placeholder UI that mimics the structure of a newsroom post page while
+ * the actual content is loading. This improves perceived performance and user experience.
+
+ * Structure:
+ * - A container with animated pulse elements representing the back button, date, tags, title,
+ *   and several lines of content.
+ * - Uses Tailwind CSS for styling, including `animate-pulse` and background colors.
+
+ * Returns:
+ * - A ReactNode representing the loading skeleton.
  ************************************************************************************************/
 function LoadingSkeleton(): ReactNode {
 	return (
@@ -87,30 +87,30 @@ function LoadingSkeleton(): ReactNode {
 }
 
 /************************************************************************************************
- ** NewsroomContent Component:
- **
- ** Renders the main body content of a newsroom post. It can handle content provided as either
- ** raw HTML or Markdown. For Markdown, it uses `ReactMarkdown` with plugins for extended
- ** functionality like GFM (GitHub Flavored Markdown), emoji, math equations (KaTeX), and code
- ** syntax highlighting.
- **
- ** Features:
- ** - Dual Content Handling: Detects if the input `content` string contains HTML tags. If so, it
- **   renders it using `dangerouslySetInnerHTML`. Otherwise, it processes it as Markdown.
- ** - Rich Markdown Rendering: Includes plugins for:
- **   - `remark-gfm`: Tables, strikethrough, task lists, etc.
- **   - `remark-emoji`: Converts emoji codes like `:tada:` to actual emoji.
- **   - `remark-math` & `rehype-katex`: Renders LaTeX math expressions.
- **   - `rehype-highlight`: Provides syntax highlighting for code blocks.
- ** - Custom Styling: Applies custom CSS classes for various Markdown elements (headers, code
- **   blocks, tables, images, blockquotes, lists, links) and includes global JSX styles for
- **   overall `blog-content` (retained name for style consistency) formatting.
- **
- ** Props:
- ** - `content`: A string containing the newsroom post body, either as HTML or Markdown.
- **
- ** Returns:
- ** - A ReactNode representing the formatted newsroom post content.
+ * NewsroomContent Component:
+
+ * Renders the main body content of a newsroom post. It can handle content provided as either
+ * raw HTML or Markdown. For Markdown, it uses `ReactMarkdown` with plugins for extended
+ * functionality like GFM (GitHub Flavored Markdown), emoji, math equations (KaTeX), and code
+ * syntax highlighting.
+
+ * Features:
+ * - Dual Content Handling: Detects if the input `content` string contains HTML tags. If so, it
+ *   renders it using `dangerouslySetInnerHTML`. Otherwise, it processes it as Markdown.
+ * - Rich Markdown Rendering: Includes plugins for:
+ *   - `remark-gfm`: Tables, strikethrough, task lists, etc.
+ *   - `remark-emoji`: Converts emoji codes like `:tada:` to actual emoji.
+ *   - `remark-math` & `rehype-katex`: Renders LaTeX math expressions.
+ *   - `rehype-highlight`: Provides syntax highlighting for code blocks.
+ * - Custom Styling: Applies custom CSS classes for various Markdown elements (headers, code
+ *   blocks, tables, images, blockquotes, lists, links) and includes global JSX styles for
+ *   overall `blog-content` (retained name for style consistency) formatting.
+
+ * Props:
+ * - `content`: A string containing the newsroom post body, either as HTML or Markdown.
+
+ * Returns:
+ * - A ReactNode representing the formatted newsroom post content.
  ************************************************************************************************/
 function NewsroomContent({content}: {content: string}): ReactNode {
 	// Check if content looks like HTML (contains HTML tags)
@@ -316,31 +316,31 @@ function NewsroomContent({content}: {content: string}): ReactNode {
 }
 
 /************************************************************************************************
- ** NewsroomPostPage Function (Default Export):
- **
- ** Fetches and renders an individual newsroom post based on the slug from the URL.
- ** It manages loading states, displays post metadata (title, date, tags, featured image), and
- ** renders the post content using the `NewsroomContent` component.
- **
- ** Hooks Used:
- ** - `useParams`: To get the `slug` of the news post from the URL.
- ** - `useRouter`: For programmatic navigation (e.g., back button).
- ** - `useCachedNews`: To potentially retrieve the post from a cache.
- ** - `useFetchNewsroom`: To fetch the post data if not found in cache or if caching is not used.
- **
- ** Logic Flow:
- ** 1. Retrieves `slug` from URL.
- ** 2. Attempts to get the post from `cachedNews` using the slug.
- ** 3. If not in cache, fetches the post using `useFetchNewsroom` with `populateContent: true`.
- ** 4. Displays `LoadingSkeleton` if `isLoading` is true.
- ** 5. If the post is not found after fetching, calls `notFound()`.
- ** 6. Renders the post details: back button, date, tags, title, featured image (if any), and
- **    the main content via `NewsroomContent`.
- ** 7. Includes a `Banner` at the bottom.
- **
- ** Returns:
- ** - A ReactNode representing the full newsroom post page, or a loading state, or triggers a
- **   404 if the post is not found.
+ * NewsroomPostPage Function (Default Export):
+
+ * Fetches and renders an individual newsroom post based on the slug from the URL.
+ * It manages loading states, displays post metadata (title, date, tags, featured image), and
+ * renders the post content using the `NewsroomContent` component.
+
+ * Hooks Used:
+ * - `useParams`: To get the `slug` of the news post from the URL.
+ * - `useRouter`: For programmatic navigation (e.g., back button).
+ * - `useCachedNews`: To potentially retrieve the post from a cache.
+ * - `useFetchNewsroom`: To fetch the post data if not found in cache or if caching is not used.
+
+ * Logic Flow:
+ * 1. Retrieves `slug` from URL.
+ * 2. Attempts to get the post from `cachedNews` using the slug.
+ * 3. If not in cache, fetches the post using `useFetchNewsroom` with `populateContent: true`.
+ * 4. Displays `LoadingSkeleton` if `isLoading` is true.
+ * 5. If the post is not found after fetching, calls `notFound()`.
+ * 6. Renders the post details: back button, date, tags, title, featured image (if any), and
+ *    the main content via `NewsroomContent`.
+ * 7. Includes a `Banner` at the bottom.
+
+ * Returns:
+ * - A ReactNode representing the full newsroom post page, or a loading state, or triggers a
+ *   404 if the post is not found.
  ************************************************************************************************/
 export default function NewsroomPostPage(): ReactNode {
 	const {slug} = useParams();

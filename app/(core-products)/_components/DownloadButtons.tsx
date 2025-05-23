@@ -1,18 +1,18 @@
 /************************************************************************************************
- ** DownloadButtons Component:
+ * DownloadButtons Component:
 
- ** Displays app store download buttons for the mobile application
- ** Used specifically by the Mobile App product page
+ * Displays app store download buttons for the mobile application
+ * Used specifically by the Mobile App product page
 
- ** Features:
- ** - Displays App Store and Google Play buttons based on data from Strapi
- ** - Responsive layout that works on both mobile and desktop
- ** - Uses optimized Next.js Image component for button images
+ * Features:
+ * - Displays App Store and Google Play buttons based on data from Strapi
+ * - Responsive layout that works on both mobile and desktop
+ * - Uses optimized Next.js Image component for button images
 
- ** Usage:
- ** - Import and use on the Mobile App product page
- ** - Pass an array of button data from Strapi
- ** - Buttons will open app store links in a new tab
+ * Usage:
+ * - Import and use on the Mobile App product page
+ * - Pass an array of button data from Strapi
+ * - Buttons will open app store links in a new tab
  ************************************************************************************************/
 
 import Image from 'next/image';

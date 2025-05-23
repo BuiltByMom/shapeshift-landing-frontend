@@ -18,13 +18,13 @@ type TDropdownProps = {
 };
 
 /**************************************************************************************************
- ** Dropdown Component
+ * Dropdown Component
 
- ** A dropdown component that allows users to select an option from a list.
+ * A dropdown component that allows users to select an option from a list.
 
- ** @param {TDropdownProps} props - Component props containing options, value, onChangeAction,
- ** className, and allItemsLabel
- ** @returns {ReactNode} Rendered dropdown component
+ * @param {TDropdownProps} props - Component props containing options, value, onChangeAction,
+ * className, and allItemsLabel
+ * @returns {ReactNode} Rendered dropdown component
  *************************************************************************************************/
 
 export function Dropdown({

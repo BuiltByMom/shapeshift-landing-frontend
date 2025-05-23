@@ -3,11 +3,11 @@
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** DAO Page Component:
+ * DAO Page Component:
 
- ** This component renders the main page for the DAO (Decentralized Autonomous Organization)
- ** section of the ShapeShift application.
- ** Currently, it displays a simple heading "DAO".
+ * This component renders the main page for the DAO (Decentralized Autonomous Organization)
+ * section of the ShapeShift application.
+ * Currently, it displays a simple heading "DAO".
  ************************************************************************************************/
 
 export default function DaoPage(): ReactNode {

@@ -1,17 +1,17 @@
 /************************************************************************************************
- ** TermsMarkdown Component & Helpers:
+ * TermsMarkdown Component & Helpers:
 
- ** This file provides a specialized Markdown renderer for the terms and conditions and
- ** privacy policy pages. It ensures consistent styling and handling of Markdown content,
- ** with a fallback to render raw HTML if the content appears to be HTML-based.
+ * This file provides a specialized Markdown renderer for the terms and conditions and
+ * privacy policy pages. It ensures consistent styling and handling of Markdown content,
+ * with a fallback to render raw HTML if the content appears to be HTML-based.
 
- ** Features:
- ** - Uses `react-markdown` with plugins for GFM, emoji, math, and syntax highlighting.
- ** - Custom renderers for HTML elements (headings, code, tables, images, etc.) to apply
- **   Tailwind CSS classes for styling.
- ** - `isHtmlContent` helper to detect if the input is likely HTML.
- ** - `CodeBlock` helper component for rendering syntax-highlighted code blocks with language display.
- ** - Optimized with `React.memo` for the main `TermsMarkdown` component.
+ * Features:
+ * - Uses `react-markdown` with plugins for GFM, emoji, math, and syntax highlighting.
+ * - Custom renderers for HTML elements (headings, code, tables, images, etc.) to apply
+ *   Tailwind CSS classes for styling.
+ * - `isHtmlContent` helper to detect if the input is likely HTML.
+ * - `CodeBlock` helper component for rendering syntax-highlighted code blocks with language display.
+ * - Optimized with `React.memo` for the main `TermsMarkdown` component.
  ************************************************************************************************/
 'use client';
 
@@ -32,30 +32,30 @@ type TTermsMarkdownProps = {
 };
 
 /************************************************************************************************
- ** isHtmlContent Function:
+ * isHtmlContent Function:
 
- ** Helper function to determine if a given string of content is likely HTML rather than Markdown.
- ** It checks for the presence of common HTML tags.
+ * Helper function to determine if a given string of content is likely HTML rather than Markdown.
+ * It checks for the presence of common HTML tags.
 
- ** Args:
- ** - content: The string content to check.
+ * Args:
+ * - content: The string content to check.
 
- ** Returns:
- ** - Boolean: True if HTML tags are detected, false otherwise.
+ * Returns:
+ * - Boolean: True if HTML tags are detected, false otherwise.
  ************************************************************************************************/
 function isHtmlContent(content: string): boolean {
 	return /<\/?(?:div|span|p|a|img|h[1-6]|ul|ol|li|table|tr|td|th|br|hr|em|strong)[^>]*>/i.test(content);
 }
 
 /************************************************************************************************
- ** TermsMarkdown Function Component:
+ * TermsMarkdown Function Component:
 
- ** Renders Markdown content with specific styling for terms pages.
- ** If the content is detected as HTML, it will render it directly using `dangerouslySetInnerHTML`.
- ** Otherwise, it uses `ReactMarkdown` with custom components for styling.
+ * Renders Markdown content with specific styling for terms pages.
+ * If the content is detected as HTML, it will render it directly using `dangerouslySetInnerHTML`.
+ * Otherwise, it uses `ReactMarkdown` with custom components for styling.
 
- ** Props:
- ** - content: The string content to render (can be Markdown or HTML).
+ * Props:
+ * - content: The string content to render (can be Markdown or HTML).
  ************************************************************************************************/
 function TermsMarkdown({content}: TTermsMarkdownProps): ReactNode {
 	if (isHtmlContent(content)) {
@@ -183,17 +183,17 @@ function TermsMarkdown({content}: TTermsMarkdownProps): ReactNode {
 }
 
 /************************************************************************************************
- ** CodeBlock Function Component:
+ * CodeBlock Function Component:
 
- ** Custom renderer for code blocks within Markdown content.
- ** If a language is specified (e.g., ```js), it displays the language name and applies
- ** syntax highlighting via `rehype-highlight`.
- ** Inline code is rendered with a simple background.
+ * Custom renderer for code blocks within Markdown content.
+ * If a language is specified (e.g., ```js), it displays the language name and applies
+ * syntax highlighting via `rehype-highlight`.
+ * Inline code is rendered with a simple background.
 
- ** Props:
- ** - className: Optional className, used to detect the language (e.g., "language-javascript").
- ** - children: The code content to render.
- ** - ...props: Other props passed to the underlying `code` element.
+ * Props:
+ * - className: Optional className, used to detect the language (e.g., "language-javascript").
+ * - children: The code content to render.
+ * - ...props: Other props passed to the underlying `code` element.
  ************************************************************************************************/
 function CodeBlock({className, children, ...props}: ComponentProps<'code'>): ReactNode {
 	const match = /language-(\w+)/.exec(className || '');
@@ -227,9 +227,9 @@ function CodeBlock({className, children, ...props}: ComponentProps<'code'>): Rea
 }
 
 /************************************************************************************************
- ** Default Export (Memoized TermsMarkdown):
+ * Default Export (Memoized TermsMarkdown):
 
- ** Exports the `TermsMarkdown` component wrapped in `React.memo`.
- ** This prevents re-renders if the `content` prop has not changed, optimizing performance.
+ * Exports the `TermsMarkdown` component wrapped in `React.memo`.
+ * This prevents re-renders if the `content` prop has not changed, optimizing performance.
  ************************************************************************************************/
 export default memo(TermsMarkdown);

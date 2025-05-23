@@ -1,36 +1,36 @@
 /************************************************************************************************
- ** ResourceHero Component & TResourceHeroProps Type:
+ * ResourceHero Component & TResourceHeroProps Type:
 
- ** This file defines the `ResourceHero` component and its `TResourceHeroProps` type.
- ** It is used to display a prominent hero banner, typically at the top of resource detail
- ** pages, featuring a main image and an optional overlay logo.
+ * This file defines the `ResourceHero` component and its `TResourceHeroProps` type.
+ * It is used to display a prominent hero banner, typically at the top of resource detail
+ * pages, featuring a main image and an optional overlay logo.
 
- ** `TResourceHeroProps` Type:
+ * `TResourceHeroProps` Type:
 
- ** Defines the properties accepted by the `ResourceHero` component.
+ * Defines the properties accepted by the `ResourceHero` component.
 
- ** Fields:
- ** - imageSrc: URL of the main hero background image.
- ** - imageAlt: Alt text for the main hero image.
- ** - className: Optional. Additional CSS classes for the section container.
- ** - logoSrc: Optional. URL for an overlay logo image.
- ** - logoAlt: Optional. Alt text for the overlay logo.
- ** - logoWidth: Optional. Width of the logo (defaults to 256).
- ** - logoHeight: Optional. Height of the logo (defaults to 256).
- ** - logoPosition: Optional. Alignment for the logo ('left', 'center', 'right', defaults to 'right').
- ** - priority: Optional. Boolean for Next.js Image `priority` prop (defaults to `true`).
+ * Fields:
+ * - imageSrc: URL of the main hero background image.
+ * - imageAlt: Alt text for the main hero image.
+ * - className: Optional. Additional CSS classes for the section container.
+ * - logoSrc: Optional. URL for an overlay logo image.
+ * - logoAlt: Optional. Alt text for the overlay logo.
+ * - logoWidth: Optional. Width of the logo (defaults to 256).
+ * - logoHeight: Optional. Height of the logo (defaults to 256).
+ * - logoPosition: Optional. Alignment for the logo ('left', 'center', 'right', defaults to 'right').
+ * - priority: Optional. Boolean for Next.js Image `priority` prop (defaults to `true`).
 
- ** `ResourceHero` Function:
+ * `ResourceHero` Function:
 
- ** Renders a prominent hero banner, typically at the top of resource detail pages. It features
- ** a main background image and an optional overlay logo, both optimized using Next.js Image.
+ * Renders a prominent hero banner, typically at the top of resource detail pages. It features
+ * a main background image and an optional overlay logo, both optimized using Next.js Image.
 
- ** Args:
- ** - props (TResourceHeroProps): An object containing properties to configure the hero banner,
- **   such as image sources, alt texts, dimensions, logo positioning, and image priority.
+ * Args:
+ * - props (TResourceHeroProps): An object containing properties to configure the hero banner,
+ *   such as image sources, alt texts, dimensions, logo positioning, and image priority.
 
- ** Returns:
- ** - ReactNode: The JSX element representing the resource hero banner section.
+ * Returns:
+ * - ReactNode: The JSX element representing the resource hero banner section.
  ************************************************************************************************/
 
 import Image from 'next/image';

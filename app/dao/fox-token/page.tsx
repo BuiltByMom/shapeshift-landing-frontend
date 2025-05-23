@@ -25,20 +25,20 @@ import {
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** FOX Token Page Component:
+ * FOX Token Page Component:
 
- ** This component renders the dedicated page for the FOX token.
- ** It provides information about the token, its benefits, ways to contribute,
- ** relevant resources (blog posts), and community links.
+ * This component renders the dedicated page for the FOX token.
+ * It provides information about the token, its benefits, ways to contribute,
+ * relevant resources (blog posts), and community links.
 
- ** The page is structured into several sections:
- ** - Hero section: Introduces the FOX token with a logo and brief description.
- ** - Contribution section: Highlights ways users can get involved or use the FOX token.
- ** - Informational banner: A large visual banner about the FOX token.
- ** - Benefits section: Lists the advantages and utilities of holding FOX.
- ** - Resources section: Displays the latest blog posts related to FOX or relevant topics.
- ** - Community section: Provides links to ShapeShift's social media and community platforms.
- ** - Footer Banner: A standard call-to-action banner.
+ * The page is structured into several sections:
+ * - Hero section: Introduces the FOX token with a logo and brief description.
+ * - Contribution section: Highlights ways users can get involved or use the FOX token.
+ * - Informational banner: A large visual banner about the FOX token.
+ * - Benefits section: Lists the advantages and utilities of holding FOX.
+ * - Resources section: Displays the latest blog posts related to FOX or relevant topics.
+ * - Community section: Provides links to ShapeShift's social media and community platforms.
+ * - Footer Banner: A standard call-to-action banner.
  ************************************************************************************************/
 
 export default function FoxTokenPage(): ReactNode {

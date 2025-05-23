@@ -14,13 +14,13 @@ const siteConfig = {
 };
 
 /************************************************************************************************
- ** manifest Function:
+ * manifest Function:
 
- ** Generates the web application manifest object.
+ * Generates the web application manifest object.
 
- ** Returns:
- ** - A `MetadataRoute.Manifest` object containing properties like application name,
- **   short name, description, start URL, display mode, theme colors, and icons.
+ * Returns:
+ * - A `MetadataRoute.Manifest` object containing properties like application name,
+ *   short name, description, start URL, display mode, theme colors, and icons.
  ************************************************************************************************/
 export default function manifest(): MetadataRoute.Manifest {
 	return {

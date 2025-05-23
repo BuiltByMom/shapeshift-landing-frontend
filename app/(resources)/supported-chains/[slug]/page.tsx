@@ -14,24 +14,24 @@ import type {Metadata} from 'next';
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** Supported Chain Detail Page Component:
- **
- ** This server component renders a detailed page for a specific supported blockchain (chain),
- ** identified by a `slug` from the URL parameters. It fetches the chain's specific data from
- ** an API (likely Strapi) and displays various sections like a header, hero image, description,
- ** actions, and features related to that chain.
- **
- ** Features:
- ** - Dynamic Data Fetching: Retrieves data for the specific chain using `getSupportedChain`.
- ** - Metadata Generation: The `generateMetadata` function dynamically creates SEO-friendly
- **   metadata (title, description, keywords, Open Graph, Twitter cards) based on the chain's
- **   details.
- ** - Modular Content Display: Utilizes several sub-components (`ChainHeader`, `ChainHero`,
- **   `ChainDescription`, `ChainActions`, `ChainFeatures`) to render different parts of the
- **   page, promoting reusability and separation of concerns.
- ** - Background Image: Includes a decorative background image for visual appeal (desktop only).
- ** - Error Handling: If the chain data cannot be fetched or the slug is invalid, it triggers a
- **   `notFound()` response.
+ * Supported Chain Detail Page Component:
+
+ * This server component renders a detailed page for a specific supported blockchain (chain),
+ * identified by a `slug` from the URL parameters. It fetches the chain's specific data from
+ * an API (likely Strapi) and displays various sections like a header, hero image, description,
+ * actions, and features related to that chain.
+
+ * Features:
+ * - Dynamic Data Fetching: Retrieves data for the specific chain using `getSupportedChain`.
+ * - Metadata Generation: The `generateMetadata` function dynamically creates SEO-friendly
+ *   metadata (title, description, keywords, Open Graph, Twitter cards) based on the chain's
+ *   details.
+ * - Modular Content Display: Utilizes several sub-components (`ChainHeader`, `ChainHero`,
+ *   `ChainDescription`, `ChainActions`, `ChainFeatures`) to render different parts of the
+ *   page, promoting reusability and separation of concerns.
+ * - Background Image: Includes a decorative background image for visual appeal (desktop only).
+ * - Error Handling: If the chain data cannot be fetched or the slug is invalid, it triggers a
+ *   `notFound()` response.
  ************************************************************************************************/
 export async function generateMetadata({params}: {params: Promise<{slug: string}>}): Promise<Metadata> {
 	const {slug} = await params;
@@ -82,21 +82,21 @@ export async function generateMetadata({params}: {params: Promise<{slug: string}
 }
 
 /************************************************************************************************
- ** ChainPage Default Export:
- **
- ** Asynchronously renders the detailed page for a specific supported blockchain. It first
- ** extracts the `slug` from the URL parameters, then fetches the corresponding chain data
- ** using `getSupportedChain`. If the chain is not found, it triggers a 404 page. Otherwise,
- ** it renders the chain's information using various specialized components (`ChainHeader`,
- ** `ChainHero`, `ChainDescription`, etc.) and includes a general `Banner`.
- **
- ** Args:
- ** - params: An object containing a Promise that resolves to `{ slug: string }`, where `slug`
- **   is the identifier for the chain whose page is to be rendered.
- **
- ** Returns:
- ** - A Promise resolving to a ReactNode representing the full page for the specified chain, or
- **   calls `notFound()` if the chain data cannot be retrieved.
+ * ChainPage Default Export:
+
+ * Asynchronously renders the detailed page for a specific supported blockchain. It first
+ * extracts the `slug` from the URL parameters, then fetches the corresponding chain data
+ * using `getSupportedChain`. If the chain is not found, it triggers a 404 page. Otherwise,
+ * it renders the chain's information using various specialized components (`ChainHeader`,
+ * `ChainHero`, `ChainDescription`, etc.) and includes a general `Banner`.
+
+ * Args:
+ * - params: An object containing a Promise that resolves to `{ slug: string }`, where `slug`
+ *   is the identifier for the chain whose page is to be rendered.
+
+ * Returns:
+ * - A Promise resolving to a ReactNode representing the full page for the specified chain, or
+ *   calls `notFound()` if the chain data cannot be retrieved.
  ************************************************************************************************/
 export default async function ChainPage({params}: {params: Promise<{slug: string}>}): Promise<ReactNode> {
 	const {slug} = await params;

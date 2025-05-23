@@ -15,23 +15,23 @@ import type {Metadata} from 'next';
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** Root Layout Component & Subdomain Helper:
+ * Root Layout Component & Subdomain Helper:
 
- ** This file defines the main layout for the entire ShapeShift application and includes a helper
- ** function to determine the current subdomain.
+ * This file defines the main layout for the entire ShapeShift application and includes a helper
+ * function to determine the current subdomain.
 
- ** `getSubdomain` Function:
- ** - Asynchronously retrieves the host from request headers.
- ** - Parses the hostname to extract the subdomain, if present.
- ** - Excludes 'www' and 'shapeshift' as valid subdomains, returning null for these cases.
+ * `getSubdomain` Function:
+ * - Asynchronously retrieves the host from request headers.
+ * - Parses the hostname to extract the subdomain, if present.
+ * - Excludes 'www' and 'shapeshift' as valid subdomains, returning null for these cases.
 
- ** `RootLayout` Component:
- ** - Sets up the basic HTML structure (<html>, <head>, <body>).
- ** - Includes global CSS and font loading (`WithFonts`).
- ** - Wraps content with context providers (`CachedNewsProvider`, `CachedPostsProvider`).
- ** - Renders the main application header (`Header`) and footer (`Footer`).
- ** - Injects structured data (JSON-LD) for website and organization schemas for SEO.
- ** - Integrates Weglot for internationalization.
+ * `RootLayout` Component:
+ * - Sets up the basic HTML structure (<html>, <head>, <body>).
+ * - Includes global CSS and font loading (`WithFonts`).
+ * - Wraps content with context providers (`CachedNewsProvider`, `CachedPostsProvider`).
+ * - Renders the main application header (`Header`) and footer (`Footer`).
+ * - Injects structured data (JSON-LD) for website and organization schemas for SEO.
+ * - Integrates Weglot for internationalization.
  ************************************************************************************************/
 
 export async function getSubdomain(): Promise<string | null> {

@@ -1,19 +1,19 @@
 /************************************************************************************************
- ** Newsroom All Tags Page Component (Effectively All Posts):
- **
- ** This client-side component renders the page that displays all newsroom posts when the user
- ** navigates to the general tags view (e.g., `/newsroom/tags`) without a specific tag
- ** selected. It effectively lists all news posts, paginated.
- **
- ** Features:
- ** - Default View: Serves as the landing page for browsing all newsroom tags, showing all
- **   posts by default.
- ** - Pagination: Inherits pagination from the underlying mechanism (likely `useFetchNewsroom`
- **   and `ReactPaginate`).
- ** - Loading State: Shows a loading skeleton while posts are being fetched.
- ** - Empty State: Displays a message if no newsroom posts are found.
- ** - Consistent UI: Uses `NewsPost` for individual post rendering and `Banner` for a consistent
- **   footer/CTA.
+ * Newsroom All Tags Page Component (Effectively All Posts):
+
+ * This client-side component renders the page that displays all newsroom posts when the user
+ * navigates to the general tags view (e.g., `/newsroom/tags`) without a specific tag
+ * selected. It effectively lists all news posts, paginated.
+
+ * Features:
+ * - Default View: Serves as the landing page for browsing all newsroom tags, showing all
+ *   posts by default.
+ * - Pagination: Inherits pagination from the underlying mechanism (likely `useFetchNewsroom`
+ *   and `ReactPaginate`).
+ * - Loading State: Shows a loading skeleton while posts are being fetched.
+ * - Empty State: Displays a message if no newsroom posts are found.
+ * - Consistent UI: Uses `NewsPost` for individual post rendering and `Banner` for a consistent
+ *   footer/CTA.
  ************************************************************************************************/
 'use client';
 
@@ -29,40 +29,40 @@ import {useFetchNewsroom} from '@/hooks/useFetchNewsroom';
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** PAGE_SIZE Constant:
- **
- ** Defines the number of newsroom posts to display per page.
- ** Default value is 12.
+ * PAGE_SIZE Constant:
+
+ * Defines the number of newsroom posts to display per page.
+ * Default value is 12.
  ************************************************************************************************/
 const PAGE_SIZE = 12;
 
 /************************************************************************************************
- ** SORT Constant:
- **
- ** Defines the sort order for the newsroom posts.
- ** Default value is 'desc' (descending, i.e., newest posts first).
+ * SORT Constant:
+
+ * Defines the sort order for the newsroom posts.
+ * Default value is 'desc' (descending, i.e., newest posts first).
  ************************************************************************************************/
 const SORT = 'desc';
 
 /************************************************************************************************
- ** NewsroomList Function (Default Export):
- **
- ** Renders a paginated list of all newsroom posts. This component is displayed when the user
- ** is on the general newsroom tags page (e.g., /newsroom/tags) without a specific tag chosen.
- ** It utilizes the `useFetchNewsroom` hook to fetch posts and `ReactPaginate` for pagination
- ** controls.
- **
- ** State:
- ** - `page`: The current page number for pagination, managed by `useState`.
- **
- ** Fetched Data:
- ** - `posts`: An array of newsroom post objects.
- ** - `pagination`: Pagination metadata (e.g., total pages).
- ** - `isLoading`: Boolean indicating if posts are currently being fetched.
- **
- ** Returns:
- ** - A ReactNode containing the list of news posts, pagination, loading/empty states, and a
- **   banner.
+ * NewsroomList Function (Default Export):
+
+ * Renders a paginated list of all newsroom posts. This component is displayed when the user
+ * is on the general newsroom tags page (e.g., /newsroom/tags) without a specific tag chosen.
+ * It utilizes the `useFetchNewsroom` hook to fetch posts and `ReactPaginate` for pagination
+ * controls.
+
+ * State:
+ * - `page`: The current page number for pagination, managed by `useState`.
+
+ * Fetched Data:
+ * - `posts`: An array of newsroom post objects.
+ * - `pagination`: Pagination metadata (e.g., total pages).
+ * - `isLoading`: Boolean indicating if posts are currently being fetched.
+
+ * Returns:
+ * - A ReactNode containing the list of news posts, pagination, loading/empty states, and a
+ *   banner.
  ************************************************************************************************/
 export default function NewsroomList(): ReactNode {
 	const [page, setPage] = useState(1);

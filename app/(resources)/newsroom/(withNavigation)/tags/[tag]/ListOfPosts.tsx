@@ -1,19 +1,19 @@
 /************************************************************************************************
- ** Newsroom Tag-Filtered List of Posts Component:
- **
- ** This client component is responsible for displaying a paginated list of newsroom posts that
- ** are filtered by a specific tag. The tag is provided as a prop.
- **
- ** Features:
- ** - Tag-Based Filtering: Fetches and displays only posts associated with the given tag.
- ** - Pagination: Uses `ReactPaginate` for navigating through pages of posts.
- ** - Configurable Page Size and Sort Order: Uses predefined constants for page size and sort
- **   direction.
- ** - Loading State: Shows a skeleton UI while posts are being fetched.
- ** - Empty State: Provides a user-friendly message if no posts are found for the specified tag.
- **
- ** Props:
- ** - `tag`: A string representing the tag slug to filter posts by.
+ * Newsroom Tag-Filtered List of Posts Component:
+
+ * This client component is responsible for displaying a paginated list of newsroom posts that
+ * are filtered by a specific tag. The tag is provided as a prop.
+
+ * Features:
+ * - Tag-Based Filtering: Fetches and displays only posts associated with the given tag.
+ * - Pagination: Uses `ReactPaginate` for navigating through pages of posts.
+ * - Configurable Page Size and Sort Order: Uses predefined constants for page size and sort
+ *   direction.
+ * - Loading State: Shows a skeleton UI while posts are being fetched.
+ * - Empty State: Provides a user-friendly message if no posts are found for the specified tag.
+
+ * Props:
+ * - `tag`: A string representing the tag slug to filter posts by.
  ************************************************************************************************/
 'use client';
 
@@ -29,41 +29,41 @@ import {useFetchNewsroom} from '@/hooks/useFetchNewsroom';
 import type {ReactElement} from 'react';
 
 /************************************************************************************************
- ** PAGE_SIZE Constant:
- **
- ** Defines the number of newsroom posts to display per page in the tag-filtered list.
- ** Default value is 12.
+ * PAGE_SIZE Constant:
+
+ * Defines the number of newsroom posts to display per page in the tag-filtered list.
+ * Default value is 12.
  ************************************************************************************************/
 const PAGE_SIZE = 12;
 
 /************************************************************************************************
- ** SORT Constant:
- **
- ** Defines the sort order for the newsroom posts in the tag-filtered list.
- ** Default value is 'desc' (descending, i.e., newest posts first).
+ * SORT Constant:
+
+ * Defines the sort order for the newsroom posts in the tag-filtered list.
+ * Default value is 'desc' (descending, i.e., newest posts first).
  ************************************************************************************************/
 const SORT = 'desc';
 
 /************************************************************************************************
- ** ListOfPosts Function:
- **
- ** Renders a list of newsroom posts filtered by the provided tag slug. It utilizes the
- ** `useFetchNewsroom` hook for data retrieval and `ReactPaginate` for pagination.
- **
- ** State:
- ** - `page`: The current page number for pagination.
- **
- ** Fetched Data (from `useFetchNewsroom`):
- ** - `posts`: An array of newsroom post objects.
- ** - `pagination`: Pagination metadata (e.g., total pages).
- ** - `isLoading`: Boolean indicating if posts are currently being fetched.
- **
- ** Args:
- ** - props: An object containing `tag` (string) - the slug of the tag for which to display posts.
- **
- ** Returns:
- ** - A ReactElement representing the list of posts for the given tag, including loading/empty
- **   states and pagination.
+ * ListOfPosts Function:
+
+ * Renders a list of newsroom posts filtered by the provided tag slug. It utilizes the
+ * `useFetchNewsroom` hook for data retrieval and `ReactPaginate` for pagination.
+
+ * State:
+ * - `page`: The current page number for pagination.
+
+ * Fetched Data (from `useFetchNewsroom`):
+ * - `posts`: An array of newsroom post objects.
+ * - `pagination`: Pagination metadata (e.g., total pages).
+ * - `isLoading`: Boolean indicating if posts are currently being fetched.
+
+ * Args:
+ * - props: An object containing `tag` (string) - the slug of the tag for which to display posts.
+
+ * Returns:
+ * - A ReactElement representing the list of posts for the given tag, including loading/empty
+ *   states and pagination.
  ************************************************************************************************/
 export function ListOfPosts(props: {tag: string}): ReactElement {
 	const {tag} = props;

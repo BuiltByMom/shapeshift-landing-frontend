@@ -1,19 +1,19 @@
 /************************************************************************************************
- ** Supported Chains Page:
+ * Supported Chains Page:
 
- ** Main landing page displaying all blockchain networks supported by ShapeShift
- ** Shows a visual grid of chains and detailed compatibility table
+ * Main landing page displaying all blockchain networks supported by ShapeShift
+ * Shows a visual grid of chains and detailed compatibility table
 
- ** Features:
- ** - Reusable ResourceHeader component for consistent UI
- ** - Server-side data fetching with error handling
- ** - Visual chain grid and detailed compatibility table
- ** - Responsive layout for all screen sizes
+ * Features:
+ * - Reusable ResourceHeader component for consistent UI
+ * - Server-side data fetching with error handling
+ * - Visual chain grid and detailed compatibility table
+ * - Responsive layout for all screen sizes
 
- ** Technical Implementation:
- ** - Uses Next.js server components for data fetching
- ** - Leverages ChainList component for chain display
- ** - Implements SupportedChainTable for detailed compatibility information
+ * Technical Implementation:
+ * - Uses Next.js server components for data fetching
+ * - Leverages ChainList component for chain display
+ * - Implements SupportedChainTable for detailed compatibility information
  ************************************************************************************************/
 
 import Image from 'next/image';

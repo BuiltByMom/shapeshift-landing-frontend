@@ -1,20 +1,20 @@
 /************************************************************************************************
- ** Blog Content Component:
- **
- ** This client-side component is responsible for rendering the main content of a blog post.
- ** It takes a string of HTML content (presumably fetched from a CMS or similar source) and
- ** dangerously sets it as inner HTML within a div. This allows for flexible rendering of
- ** rich text content, including various HTML tags and styling that might be present in the
- ** source.
- **
- ** Security Note:
- ** Using `dangerouslySetInnerHTML` can expose the application to cross-site scripting (XSS)
- ** attacks if the `content` prop is not properly sanitized before being passed to this
- ** component. It is crucial to ensure that the HTML content comes from a trusted source or
- ** is sanitized to remove any malicious scripts or tags.
- **
- ** Props:
- ** - `content`: A string containing the HTML content of the blog post.
+ * Blog Content Component:
+
+ * This client-side component is responsible for rendering the main content of a blog post.
+ * It takes a string of HTML content (presumably fetched from a CMS or similar source) and
+ * dangerously sets it as inner HTML within a div. This allows for flexible rendering of
+ * rich text content, including various HTML tags and styling that might be present in the
+ * source.
+
+ * Security Note:
+ * Using `dangerouslySetInnerHTML` can expose the application to cross-site scripting (XSS)
+ * attacks if the `content` prop is not properly sanitized before being passed to this
+ * component. It is crucial to ensure that the HTML content comes from a trusted source or
+ * is sanitized to remove any malicious scripts or tags.
+
+ * Props:
+ * - `content`: A string containing the HTML content of the blog post.
  ************************************************************************************************/
 'use client';
 
@@ -30,17 +30,17 @@ import remarkMath from 'remark-math'; // For math equations
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** BlogContent Function:
- **
- ** Renders the HTML content of a blog post. It uses `dangerouslySetInnerHTML` to interpret
- ** the provided HTML string. This component is typically used to display the body of a blog
- ** post that includes rich formatting.
- **
- ** Args:
- ** - content (string): The HTML string representing the blog post's content.
- **
- ** Returns:
- ** - A ReactNode, specifically a `div` element whose inner HTML is set to the provided content.
+ * BlogContent Function:
+
+ * Renders the HTML content of a blog post. It uses `dangerouslySetInnerHTML` to interpret
+ * the provided HTML string. This component is typically used to display the body of a blog
+ * post that includes rich formatting.
+
+ * Args:
+ * - content (string): The HTML string representing the blog post's content.
+
+ * Returns:
+ * - A ReactNode, specifically a `div` element whose inner HTML is set to the provided content.
  ************************************************************************************************/
 export function BlogContent({content}: {content: string}): ReactNode {
 	// Check if content looks like HTML (contains HTML tags)

@@ -1,19 +1,19 @@
 /************************************************************************************************
- ** Supported Chains Page:
+ * Supported Chains Page:
 
- ** Main landing page displaying all blockchain networks supported by ShapeShift
- ** Shows a visual grid of chains and detailed compatibility table
+ * Main landing page displaying all blockchain networks supported by ShapeShift
+ * Shows a visual grid of chains and detailed compatibility table
 
- ** Features:
- ** - Reusable ResourceHeader component for consistent UI
- ** - Server-side data fetching with error handling
- ** - Visual chain grid and detailed compatibility table
- ** - Responsive layout for all screen sizes
+ * Features:
+ * - Reusable ResourceHeader component for consistent UI
+ * - Server-side data fetching with error handling
+ * - Visual chain grid and detailed compatibility table
+ * - Responsive layout for all screen sizes
 
- ** Technical Implementation:
- ** - Uses Next.js server components for data fetching
- ** - Leverages ChainList component for chain display
- ** - Implements SupportedChainTable for detailed compatibility information
+ * Technical Implementation:
+ * - Uses Next.js server components for data fetching
+ * - Leverages ChainList component for chain display
+ * - Implements SupportedChainTable for detailed compatibility information
  ************************************************************************************************/
 
 import {Banner} from '@/components/common/Banner';
@@ -24,15 +24,15 @@ import {ResourceHeader} from '../_components/ResourceHeader';
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** Loading Default Export:
- **
- ** Asynchronously renders the loading state UI for the supported chains section. This includes
- ** a skeleton version of the resource header, placeholders for a search bar and filter dropdown,
- ** and a grid of skeleton resource cards to represent the chains being loaded.
- **
- ** Returns:
- ** - A Promise resolving to a ReactNode containing the complete loading skeleton UI for the
- **   supported chains page.
+ * Loading Default Export:
+
+ * Asynchronously renders the loading state UI for the supported chains section. This includes
+ * a skeleton version of the resource header, placeholders for a search bar and filter dropdown,
+ * and a grid of skeleton resource cards to represent the chains being loaded.
+
+ * Returns:
+ * - A Promise resolving to a ReactNode containing the complete loading skeleton UI for the
+ *   supported chains page.
  ************************************************************************************************/
 
 // Static content for the page

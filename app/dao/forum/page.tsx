@@ -3,11 +3,11 @@
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** DAO Forum Page Component:
+ * DAO Forum Page Component:
 
- ** This component renders the main page for the forum section within the DAO
- ** (Decentralized Autonomous Organization) area of the ShapeShift application.
- ** Currently, it displays a simple heading "Forum".
+ * This component renders the main page for the forum section within the DAO
+ * (Decentralized Autonomous Organization) area of the ShapeShift application.
+ * Currently, it displays a simple heading "Forum".
  ************************************************************************************************/
 
 export default function ForumPage(): ReactNode {

@@ -1,20 +1,20 @@
 /************************************************************************************************
- ** Supported Wallets Page Component:
- **
- ** This server component serves as the main page for the "Supported Wallets" section. It
- ** fetches a list of all supported wallets from an API (likely Strapi) and displays them.
- ** The page includes a header, a search/filter wrapper, and a banner.
- **
- ** Features:
- ** - Data Fetching: Asynchronously fetches all supported wallet data using `fetchAllWallets`.
- ** - Content Display: Uses `ResourceHeader` to display a title and description for the page.
- ** - Search and Filtering: Integrates the `WalletSearchWrapper` component, which allows users
- **   to search for wallets by name and potentially filter them (though filtering logic is
- **   encapsulated within `WalletSearchWrapper`).
- ** - Fallback/Error Handling: If wallet data cannot be fetched, it gracefully returns null,
- **   which might be handled by a parent error boundary or a `notFound()` call depending on
- **   the broader application structure (though not explicitly shown here for `fetchAllWallets`).
- ** - Banner: Includes a `Banner` component, likely for general calls-to-action or information.
+ * Supported Wallets Page Component:
+
+ * This server component serves as the main page for the "Supported Wallets" section. It
+ * fetches a list of all supported wallets from an API (likely Strapi) and displays them.
+ * The page includes a header, a search/filter wrapper, and a banner.
+
+ * Features:
+ * - Data Fetching: Asynchronously fetches all supported wallet data using `fetchAllWallets`.
+ * - Content Display: Uses `ResourceHeader` to display a title and description for the page.
+ * - Search and Filtering: Integrates the `WalletSearchWrapper` component, which allows users
+ *   to search for wallets by name and potentially filter them (though filtering logic is
+ *   encapsulated within `WalletSearchWrapper`).
+ * - Fallback/Error Handling: If wallet data cannot be fetched, it gracefully returns null,
+ *   which might be handled by a parent error boundary or a `notFound()` call depending on
+ *   the broader application structure (though not explicitly shown here for `fetchAllWallets`).
+ * - Banner: Includes a `Banner` component, likely for general calls-to-action or information.
  ************************************************************************************************/
 
 import {ResourceHeader} from '@/app/(resources)/_components/ResourceHeader';
@@ -40,17 +40,17 @@ const pageContent = {
 };
 
 /************************************************************************************************
- ** WalletPage Default Export:
- **
- ** Asynchronously renders the main page for listing supported wallets. It fetches all wallet
- ** data and then passes this data to the `WalletSearchWrapper` for display, which includes
- ** search and potentially filter capabilities. The page also includes a `ResourceHeader` and a
- ** `Banner`.
- **
- ** Returns:
- ** - A Promise resolving to a ReactNode representing the supported wallets page. Returns
- **   `null` if the initial fetch of all wallets fails, which should ideally be handled by a
- **   higher-level error component or a `notFound` mechanism if appropriate.
+ * WalletPage Default Export:
+
+ * Asynchronously renders the main page for listing supported wallets. It fetches all wallet
+ * data and then passes this data to the `WalletSearchWrapper` for display, which includes
+ * search and potentially filter capabilities. The page also includes a `ResourceHeader` and a
+ * `Banner`.
+
+ * Returns:
+ * - A Promise resolving to a ReactNode representing the supported wallets page. Returns
+ *   `null` if the initial fetch of all wallets fails, which should ideally be handled by a
+ *   higher-level error component or a `notFound` mechanism if appropriate.
  ************************************************************************************************/
 export default async function WalletPage(): Promise<ReactNode> {
 	// Fetch wallets data

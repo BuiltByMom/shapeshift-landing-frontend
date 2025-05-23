@@ -1,30 +1,30 @@
 /************************************************************************************************
- ** ProductFetcher Utility:
+ * ProductFetcher Utility:
 
- ** A centralized, type-safe data fetching module for all core product pages
+ * A centralized, type-safe data fetching module for all core product pages
 
- ** Purpose:
- ** - Provides consistent, reusable data fetching patterns across product pages
- ** - Enforces proper typing for all API responses
- ** - Encapsulates Strapi API query structure complexity
- ** - Implements proper error handling and caching strategies
+ * Purpose:
+ * - Provides consistent, reusable data fetching patterns across product pages
+ * - Enforces proper typing for all API responses
+ * - Encapsulates Strapi API query structure complexity
+ * - Implements proper error handling and caching strategies
 
- ** Data Architecture:
- ** - Uses TBaseProductPage for common properties across products
- ** - Extends base type with product-specific data requirements
- ** - Ensures all complex nested Strapi relationships are properly typed
+ * Data Architecture:
+ * - Uses TBaseProductPage for common properties across products
+ * - Extends base type with product-specific data requirements
+ * - Ensures all complex nested Strapi relationships are properly typed
 
- ** Features:
- ** - Automatic error handling with detailed error logging
- ** - HTTP status code validation
- ** - Consistent 1-hour cache revalidation strategy
- ** - Secure API token handling through environment variables
- ** - Standardized null return for error conditions (to trigger notFound())
+ * Features:
+ * - Automatic error handling with detailed error logging
+ * - HTTP status code validation
+ * - Consistent 1-hour cache revalidation strategy
+ * - Secure API token handling through environment variables
+ * - Standardized null return for error conditions (to trigger notFound())
 
- ** Usage Example:
- **   const page = await fetchTradePage();
- **   if (!page) return notFound();
- **   // Use typed page data safely in your component
+ * Usage Example:
+ *   const page = await fetchTradePage();
+ *   if (!page) return notFound();
+ *   // Use typed page data safely in your component
  ************************************************************************************************/
 
 import {fetchWithErrorHandling} from './fetchUtils';
@@ -42,11 +42,11 @@ import type {
 } from '@/components/strapi/types';
 
 /************************************************************************************************
- ** Product Page Type Definitions
+ * Product Page Type Definitions
 
- ** These types define the data structure expected from the Strapi API for each product page
- ** All types extend the TBaseProductPage which contains common properties across products
- ** Each product has unique content sections requiring specialized data types
+ * These types define the data structure expected from the Strapi API for each product page
+ * All types extend the TBaseProductPage which contains common properties across products
+ * Each product has unique content sections requiring specialized data types
  ************************************************************************************************/
 
 /************************************************************************************************
@@ -102,13 +102,13 @@ type TTradePage = TBaseProductPage & {
 
 /************************************************************************************************
  * Fetches DeFi Wallet page data from Strapi API
- *
+
  * Retrieves complete page content including:
  * - Basic page information (title, description)
  * - Featured image for hero section
  * - CTA button configuration
  * - Cards row with individual card data and images
- *
+
  * @returns Promise resolving to page data or null if not found/error
  ************************************************************************************************/
 export async function fetchDeFiWalletPage(): Promise<TDeFiWalletPage | null> {
@@ -120,13 +120,13 @@ export async function fetchDeFiWalletPage(): Promise<TDeFiWalletPage | null> {
 
 /************************************************************************************************
  * Fetches Earn page data from Strapi API
- *
+
  * Retrieves complete page content including:
  * - Basic page information (title, description)
  * - Featured image for hero section
  * - CTA button configuration
  * - Grid layout with cards and CTA blocks
- *
+
  * @returns Promise resolving to page data or null if not found/error
  ************************************************************************************************/
 export async function fetchEarnPage(): Promise<TEarnPage | null> {
@@ -138,13 +138,13 @@ export async function fetchEarnPage(): Promise<TEarnPage | null> {
 
 /************************************************************************************************
  * Fetches Mobile App page data from Strapi API
- *
+
  * Retrieves complete page content including:
  * - Basic page information (title, description)
  * - Featured image for hero section
  * - App store download buttons
  * - Step-by-step ladder grid with images
- *
+
  * @returns Promise resolving to page data or null if not found/error
  ************************************************************************************************/
 export async function fetchMobileAppPage(): Promise<TMobileAppPage | null> {
@@ -156,7 +156,7 @@ export async function fetchMobileAppPage(): Promise<TMobileAppPage | null> {
 
 /************************************************************************************************
  * Fetches Trade page data from Strapi API
- *
+
  * Retrieves complete page content including:
  * - Basic page information (title, description)
  * - Featured image for hero section
@@ -164,7 +164,7 @@ export async function fetchMobileAppPage(): Promise<TMobileAppPage | null> {
  * - Statistics data for metrics display
  * - Cards row with feature highlights
  * - Displaced grid layout for additional content
- *
+
  * @returns Promise resolving to page data or null if not found/error
  ************************************************************************************************/
 export async function fetchTradePage(): Promise<TTradePage | null> {

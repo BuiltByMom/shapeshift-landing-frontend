@@ -36,14 +36,14 @@ import type {TCard} from '@/components/strapi/types';
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** HomePage Component:
+ * HomePage Component:
 
- ** The main landing page for the ShapeShift application.
- ** Features a hero section with a trading widget, informational cards,
- ** tabbed feature displays, and links to blog posts and a community banner.
+ * The main landing page for the ShapeShift application.
+ * Features a hero section with a trading widget, informational cards,
+ * tabbed feature displays, and links to blog posts and a community banner.
 
- ** State:
- ** - tab: Manages the currently selected tab for the feature display section.
+ * State:
+ * - tab: Manages the currently selected tab for the feature display section.
  ************************************************************************************************/
 export default function HomePage(): ReactNode {
 	const [tab, setTab] = useState(homepageFeatureTabs[0]);
@@ -297,16 +297,16 @@ export default function HomePage(): ReactNode {
 }
 
 /************************************************************************************************
- ** Card Component (Local to HomePage):
+ * Card Component (Local to HomePage):
 
- ** A simple presentational component used within the HomePage to display
- ** content in a card-like structure. Can optionally be a link.
+ * A simple presentational component used within the HomePage to display
+ * content in a card-like structure. Can optionally be a link.
 
- ** Props:
- ** - children: The content to be rendered inside the card.
- ** - className: Additional CSS classes for styling.
- ** - href: Optional URL to make the card a clickable link.
- ** - target: Optional target attribute for the link (e.g., '_blank').
+ * Props:
+ * - children: The content to be rendered inside the card.
+ * - className: Additional CSS classes for styling.
+ * - href: Optional URL to make the card a clickable link.
+ * - target: Optional target attribute for the link (e.g., '_blank').
  ************************************************************************************************/
 const Card = ({
 	children,

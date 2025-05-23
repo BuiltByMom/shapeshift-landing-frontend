@@ -1,27 +1,27 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /************************************************************************************************
- ** Schema.org JSON-LD Generator Utilities:
+ * Schema.org JSON-LD Generator Utilities:
 
- ** This module provides utility functions to generate Schema.org compliant JSON-LD (JavaScript
- ** Object Notation for Linked Data) structured data. This data helps search engines understand
- ** the content of web pages, leading to better SEO and the possibility of rich snippets in
- ** search results.
+ * This module provides utility functions to generate Schema.org compliant JSON-LD (JavaScript
+ * Object Notation for Linked Data) structured data. This data helps search engines understand
+ * the content of web pages, leading to better SEO and the possibility of rich snippets in
+ * search results.
 
- ** Supported Schemas:
- ** - BlogPosting: For individual blog articles.
- ** - SoftwareApplication: For product pages (representing ShapeShift's offerings as software).
- ** - WebSite: For the main website identity.
- ** - Organization: For providing information about ShapeShift as an organization.
+ * Supported Schemas:
+ * - BlogPosting: For individual blog articles.
+ * - SoftwareApplication: For product pages (representing ShapeShift's offerings as software).
+ * - WebSite: For the main website identity.
+ * - Organization: For providing information about ShapeShift as an organization.
  ************************************************************************************************/
 
 import type {TBlogPost} from '@/components/strapi/types';
 
 /************************************************************************************************
- ** organizationSchema Constant:
+ * organizationSchema Constant:
 
- ** Defines the base Schema.org `Organization` data for ShapeShift.
- ** This constant is reused by other schema generation functions.
- ** Includes properties like context, type, name, URL, logo, and social media links (sameAs).
+ * Defines the base Schema.org `Organization` data for ShapeShift.
+ * This constant is reused by other schema generation functions.
+ * Includes properties like context, type, name, URL, logo, and social media links (sameAs).
  ************************************************************************************************/
 const organizationSchema = {
 	'@context': 'https://schema.org',
@@ -33,17 +33,17 @@ const organizationSchema = {
 };
 
 /************************************************************************************************
- ** generateBlogPostSchema Function:
+ * generateBlogPostSchema Function:
 
- ** Generates Schema.org `BlogPosting` (Article) structured data for a given blog post.
+ * Generates Schema.org `BlogPosting` (Article) structured data for a given blog post.
 
- ** Args:
- ** - post: A `TBlogPost` object containing details of the blog post (title, slug, summary, etc.).
- ** - baseUrl: The base URL of the website (e.g., "https://shapeshift.com").
+ * Args:
+ * - post: A `TBlogPost` object containing details of the blog post (title, slug, summary, etc.).
+ * - baseUrl: The base URL of the website (e.g., "https://shapeshift.com").
 
- ** Returns:
- ** - A Record<string, any> representing the JSON-LD schema for the blog post.
- **   Returns an empty object if essential post data (title or slug) is missing.
+ * Returns:
+ * - A Record<string, any> representing the JSON-LD schema for the blog post.
+ *   Returns an empty object if essential post data (title or slug) is missing.
  ************************************************************************************************/
 export function generateBlogPostSchema(post: TBlogPost, baseUrl: string): Record<string, any> {
 	// Ensure we have required fields
@@ -81,20 +81,20 @@ export function generateBlogPostSchema(post: TBlogPost, baseUrl: string): Record
 }
 
 /************************************************************************************************
- ** generateProductSchema Function:
+ * generateProductSchema Function:
 
- ** Generates Schema.org `SoftwareApplication` structured data for a product page.
+ * Generates Schema.org `SoftwareApplication` structured data for a product page.
 
- ** Args:
- ** - title: The title of the product.
- ** - description: A description of the product.
- ** - featuredImage: Optional URL of the product's featured image.
- ** - pageURL: The URL of the product page.
- ** - features: Optional array of objects, each with `title` and `description` for product features.
+ * Args:
+ * - title: The title of the product.
+ * - description: A description of the product.
+ * - featuredImage: Optional URL of the product's featured image.
+ * - pageURL: The URL of the product page.
+ * - features: Optional array of objects, each with `title` and `description` for product features.
 
- ** Returns:
- ** - A Record<string, any> representing the JSON-LD schema for the product.
- **   Returns an empty object if essential data (title or pageURL) is missing.
+ * Returns:
+ * - A Record<string, any> representing the JSON-LD schema for the product.
+ *   Returns an empty object if essential data (title or pageURL) is missing.
  ************************************************************************************************/
 export function generateProductSchema({
 	title,
@@ -145,15 +145,15 @@ export function generateProductSchema({
 }
 
 /************************************************************************************************
- ** generateWebsiteSchema Function:
+ * generateWebsiteSchema Function:
 
- ** Generates Schema.org `WebSite` structured data.
+ * Generates Schema.org `WebSite` structured data.
 
- ** Args:
- ** - baseUrl: The base URL of the website.
+ * Args:
+ * - baseUrl: The base URL of the website.
 
- ** Returns:
- ** - A Record<string, any> representing the JSON-LD schema for the website.
+ * Returns:
+ * - A Record<string, any> representing the JSON-LD schema for the website.
  ************************************************************************************************/
 export function generateWebsiteSchema(baseUrl: string): Record<string, any> {
 	return {
@@ -165,12 +165,12 @@ export function generateWebsiteSchema(baseUrl: string): Record<string, any> {
 }
 
 /************************************************************************************************
- ** generateOrganizationSchema Function:
+ * generateOrganizationSchema Function:
 
- ** Returns the predefined `organizationSchema` constant for use as Organization structured data.
+ * Returns the predefined `organizationSchema` constant for use as Organization structured data.
 
- ** Returns:
- ** - A Record<string, any> representing the JSON-LD schema for the organization.
+ * Returns:
+ * - A Record<string, any> representing the JSON-LD schema for the organization.
  ************************************************************************************************/
 export function generateOrganizationSchema(): Record<string, any> {
 	return organizationSchema;

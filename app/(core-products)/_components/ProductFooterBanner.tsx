@@ -1,21 +1,21 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /************************************************************************************************
- ** ProductFooterBanner Component:
+ * ProductFooterBanner Component:
 
- ** A specialized version of the FooterBanner component tailored for product pages
- ** Provides product-specific CTA text and links while maintaining consistent styling
+ * A specialized version of the FooterBanner component tailored for product pages
+ * Provides product-specific CTA text and links while maintaining consistent styling
 
- ** Features:
- ** - Customized tag text for each product (e.g., "Trade with ShapeShift")
- ** - Product-specific CTA button text and target URL
- ** - Consistent visual styling across all product pages
- ** - Background image with text overlay and CTA button
- ** - Uses centralized configuration from constants.ts
+ * Features:
+ * - Customized tag text for each product (e.g., "Trade with ShapeShift")
+ * - Product-specific CTA button text and target URL
+ * - Consistent visual styling across all product pages
+ * - Background image with text overlay and CTA button
+ * - Uses centralized configuration from constants.ts
 
- ** Usage:
- ** - Place at the bottom of product pages to provide a final call-to-action
- ** - Specify the product name to automatically apply correct configuration
- ** - Maintains consistent branding and messaging
+ * Usage:
+ * - Place at the bottom of product pages to provide a final call-to-action
+ * - Specify the product name to automatically apply correct configuration
+ * - Maintains consistent branding and messaging
  ************************************************************************************************/
 
 import {FooterBanner, FooterBannerMobileApp} from '@/components/FooterBanner';

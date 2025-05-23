@@ -13,42 +13,42 @@ import type {Metadata} from 'next';
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** Supported Protocol Detail Page Component:
- **
- ** This server component renders a detailed page for a specific supported DeFi protocol,
- ** identified by a `slug` from the URL parameters. It fetches the protocol's specific data
- ** from an API (likely Strapi) and displays various sections like a header, an "About"
- ** section, an "Easier With ShapeShift" section, and key features.
- **
- ** Features:
- ** - Dynamic Data Fetching: Retrieves data for the specific protocol using `getSupportedProtocol`.
- ** - Metadata Generation: The `generateMetadata` function dynamically creates SEO-friendly
- **   metadata (title, description, keywords, Open Graph, Twitter cards) based on the protocol's
- **   details.
- ** - Modular Content Display: Utilizes several sub-components (`ProtocolHeader`,
- **   `ProtocolAbout`, `ProtocolEasier`, `ProtocolFeatures`) to render different parts of the
- **   page, promoting reusability and separation of concerns.
- ** - Background Image: Includes a decorative background image for visual appeal (desktop only).
- ** - Error Handling: If the protocol data cannot be fetched or the slug is invalid, it triggers
- **   a `notFound()` response.
+ * Supported Protocol Detail Page Component:
+
+ * This server component renders a detailed page for a specific supported DeFi protocol,
+ * identified by a `slug` from the URL parameters. It fetches the protocol's specific data
+ * from an API (likely Strapi) and displays various sections like a header, an "About"
+ * section, an "Easier With ShapeShift" section, and key features.
+
+ * Features:
+ * - Dynamic Data Fetching: Retrieves data for the specific protocol using `getSupportedProtocol`.
+ * - Metadata Generation: The `generateMetadata` function dynamically creates SEO-friendly
+ *   metadata (title, description, keywords, Open Graph, Twitter cards) based on the protocol's
+ *   details.
+ * - Modular Content Display: Utilizes several sub-components (`ProtocolHeader`,
+ *   `ProtocolAbout`, `ProtocolEasier`, `ProtocolFeatures`) to render different parts of the
+ *   page, promoting reusability and separation of concerns.
+ * - Background Image: Includes a decorative background image for visual appeal (desktop only).
+ * - Error Handling: If the protocol data cannot be fetched or the slug is invalid, it triggers
+ *   a `notFound()` response.
  ************************************************************************************************/
 
 /************************************************************************************************
- ** generateMetadata Function:
- **
- ** Asynchronously generates metadata for a specific supported protocol page. It fetches the
- ** protocol data based on the provided `slug` from the URL parameters. If the protocol is
- ** found, it constructs a `Metadata` object including the protocol's name in the title, a
- ** descriptive meta description, relevant keywords, and Open Graph/Twitter card information
- ** with the protocol's featured image.
- **
- ** Args:
- ** - params: An object containing a Promise that resolves to `{ slug: string }`, where `slug`
- **   is the identifier for the protocol.
- **
- ** Returns:
- ** - A Promise resolving to a `Metadata` object for the protocol page. If the slug is missing
- **   or the protocol is not found, it calls `notFound()`.
+ * generateMetadata Function:
+
+ * Asynchronously generates metadata for a specific supported protocol page. It fetches the
+ * protocol data based on the provided `slug` from the URL parameters. If the protocol is
+ * found, it constructs a `Metadata` object including the protocol's name in the title, a
+ * descriptive meta description, relevant keywords, and Open Graph/Twitter card information
+ * with the protocol's featured image.
+
+ * Args:
+ * - params: An object containing a Promise that resolves to `{ slug: string }`, where `slug`
+ *   is the identifier for the protocol.
+
+ * Returns:
+ * - A Promise resolving to a `Metadata` object for the protocol page. If the slug is missing
+ *   or the protocol is not found, it calls `notFound()`.
  ************************************************************************************************/
 export async function generateMetadata({params}: {params: Promise<{slug: string}>}): Promise<Metadata> {
 	const {slug} = await params;
@@ -99,21 +99,21 @@ export async function generateMetadata({params}: {params: Promise<{slug: string}
 }
 
 /************************************************************************************************
- ** ProtocolPage Default Export:
- **
- ** Asynchronously renders the detailed page for a specific supported protocol. It first
- ** extracts the `slug` from the URL parameters, then fetches the corresponding protocol data
- ** using `getSupportedProtocol`. If the protocol is not found, it triggers a 404 page.
- ** Otherwise, it renders the protocol's information using various specialized components
- ** (`ProtocolHeader`, `ProtocolAbout`, etc.) and includes a general `Banner`.
- **
- ** Args:
- ** - params: An object containing a Promise that resolves to `{ slug: string }`, where `slug`
- **   is the identifier for the protocol whose page is to be rendered.
- **
- ** Returns:
- ** - A Promise resolving to a ReactNode representing the full page for the specified protocol,
- **   or calls `notFound()` if the protocol data cannot be retrieved.
+ * ProtocolPage Default Export:
+
+ * Asynchronously renders the detailed page for a specific supported protocol. It first
+ * extracts the `slug` from the URL parameters, then fetches the corresponding protocol data
+ * using `getSupportedProtocol`. If the protocol is not found, it triggers a 404 page.
+ * Otherwise, it renders the protocol's information using various specialized components
+ * (`ProtocolHeader`, `ProtocolAbout`, etc.) and includes a general `Banner`.
+
+ * Args:
+ * - params: An object containing a Promise that resolves to `{ slug: string }`, where `slug`
+ *   is the identifier for the protocol whose page is to be rendered.
+
+ * Returns:
+ * - A Promise resolving to a ReactNode representing the full page for the specified protocol,
+ *   or calls `notFound()` if the protocol data cannot be retrieved.
  ************************************************************************************************/
 export default async function ProtocolPage({params}: {params: Promise<{slug: string}>}): Promise<ReactNode> {
 	const {slug} = await params;

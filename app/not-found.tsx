@@ -6,11 +6,11 @@ import {dAppUrl} from '@/components/constants';
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** Not Found Page Component:
+ * Not Found Page Component:
 
- ** This component renders the 404 error page for the ShapeShift application.
- ** It displays a user-friendly message indicating that the requested page could not be found,
- ** along with a background image and buttons to navigate to the main app or the homepage.
+ * This component renders the 404 error page for the ShapeShift application.
+ * It displays a user-friendly message indicating that the requested page could not be found,
+ * along with a background image and buttons to navigate to the main app or the homepage.
  ************************************************************************************************/
 
 export default function Page(): ReactNode {

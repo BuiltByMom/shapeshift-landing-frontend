@@ -10,7 +10,7 @@ import type {TBlogListResponse, TBlogPost, TPagination} from '@/components/strap
  * Custom hook for fetching blog posts from Strapi
  * Handles loading states, errors, and data fetching
  * Supports caching, pagination, filtering, and sorting
- *
+
  * @param {Object} options - Fetch configuration options
  * @param {number} options.page - Current page number (default: 1)
  * @param {number} options.pageSize - Number of posts per page (default: 12)
@@ -21,7 +21,7 @@ import type {TBlogListResponse, TBlogPost, TPagination} from '@/components/strap
  * @param {boolean} options.populateContent - Whether to include full content (default: false)
  * @param {boolean} options.cachePosts - Whether to cache results (default: false)
  * @param {boolean} options.skip - Whether to skip the fetch operation (default: false)
- *
+
  * @returns {Object} Posts data and state
  * @returns {TBlogPost[]} posts - Array of blog posts
  * @returns {TPagination} pagination - Pagination metadata

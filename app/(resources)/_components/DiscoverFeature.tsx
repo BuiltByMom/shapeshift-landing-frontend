@@ -1,29 +1,29 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /************************************************************************************************
- ** DiscoverFeature Component & Associated Types:
+ * DiscoverFeature Component & Associated Types:
 
- ** This component is designed to display a section highlighting various features, typically
- ** for a product, protocol, or service. It renders a grid of feature items, each potentially
- ** including an image, title, and description.
+ * This component is designed to display a section highlighting various features, typically
+ * for a product, protocol, or service. It renders a grid of feature items, each potentially
+ * including an image, title, and description.
 
- ** Purpose & Features:
- ** - Renders a responsive grid of features (configurable columns: 2, 3, or 4).
- ** - Allows for an optional main title and description for the entire feature section.
- ** - Each feature item can have an image (fetched from Strapi or an absolute URL),
- **   a title, and a description.
- ** - Handles cases where no features are provided by returning null.
- ** - Uses `cl` utility for conditional class names.
+ * Purpose & Features:
+ * - Renders a responsive grid of features (configurable columns: 2, 3, or 4).
+ * - Allows for an optional main title and description for the entire feature section.
+ * - Each feature item can have an image (fetched from Strapi or an absolute URL),
+ *   a title, and a description.
+ * - Handles cases where no features are provided by returning null.
+ * - Uses `cl` utility for conditional class names.
 
- ** `TFeatureItem` Type:
- ** - Defines the structure for a single feature item, including an optional `id`, a mandatory
- **   `title` and `description`, and an optional `image` object (with URL, width, height, alt).
+ * `TFeatureItem` Type:
+ * - Defines the structure for a single feature item, including an optional `id`, a mandatory
+ *   `title` and `description`, and an optional `image` object (with URL, width, height, alt).
 
- ** Props:
- ** - features: An array of `TFeatureItem` objects to be displayed.
- ** - title: Optional main title for the feature section.
- ** - description: Optional main description for the feature section.
- ** - columns: Optional number of columns for the grid (defaults to 3). Can be 2, 3, or 4.
- ** - className: Optional string for additional CSS classes on the section container.
+ * Props:
+ * - features: An array of `TFeatureItem` objects to be displayed.
+ * - title: Optional main title for the feature section.
+ * - description: Optional main description for the feature section.
+ * - columns: Optional number of columns for the grid (defaults to 3). Can be 2, 3, or 4.
+ * - className: Optional string for additional CSS classes on the section container.
  ************************************************************************************************/
 
 import Image from 'next/image';

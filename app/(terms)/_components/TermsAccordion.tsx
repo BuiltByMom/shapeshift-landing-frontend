@@ -1,25 +1,25 @@
 /************************************************************************************************
- ** TermsAccordion Component & Associated Types:
+ * TermsAccordion Component & Associated Types:
 
- ** This file defines a reusable accordion component specifically designed for displaying
- ** items within the Terms of Service or Privacy Policy pages. Each accordion item can be
- ** expanded or collapsed to show or hide its content.
+ * This file defines a reusable accordion component specifically designed for displaying
+ * items within the Terms of Service or Privacy Policy pages. Each accordion item can be
+ * expanded or collapsed to show or hide its content.
 
- ** Features:
- ** - Uses `framer-motion` for smooth open/close animations.
- ** - Accessibility: Supports keyboard navigation (Enter/Space to toggle) and ARIA attributes.
- ** - Optimized: Uses `React.memo` to prevent unnecessary re-renders of individual accordions.
- ** - Generic: Accepts `TTermsItemData` to display different content items.
+ * Features:
+ * - Uses `framer-motion` for smooth open/close animations.
+ * - Accessibility: Supports keyboard navigation (Enter/Space to toggle) and ARIA attributes.
+ * - Optimized: Uses `React.memo` to prevent unnecessary re-renders of individual accordions.
+ * - Generic: Accepts `TTermsItemData` to display different content items.
 
- ** `TTermsItemData` Type:
- ** - Defines the structure for each item displayed in the accordion, including an `id`,
- **   `title`, `date`, and the main `content` (as a string, potentially Markdown).
+ * `TTermsItemData` Type:
+ * - Defines the structure for each item displayed in the accordion, including an `id`,
+ *   `title`, `date`, and the main `content` (as a string, potentially Markdown).
 
- ** `TermsAccordion` Function Component:
- ** - Manages its own open/closed state.
- ** - Renders a clickable header with the item's title and date.
- ** - Shows an animated plus/minus icon to indicate a toggle.
- ** - Displays the item's content (rendered via `TermsMarkdown`) when open.
+ * `TermsAccordion` Function Component:
+ * - Manages its own open/closed state.
+ * - Renders a clickable header with the item's title and date.
+ * - Shows an animated plus/minus icon to indicate a toggle.
+ * - Displays the item's content (rendered via `TermsMarkdown`) when open.
  ************************************************************************************************/
 'use client';
 
@@ -44,19 +44,19 @@ type TTermsAccordionProps = {
 };
 
 /************************************************************************************************
- ** TermsAccordion Function Component:
+ * TermsAccordion Function Component:
 
- ** Renders a single expandable/collapsible item for the terms pages.
+ * Renders a single expandable/collapsible item for the terms pages.
 
- ** Props:
- ** - item: A `TTermsItemData` object containing the title, date, and content for the accordion item.
+ * Props:
+ * - item: A `TTermsItemData` object containing the title, date, and content for the accordion item.
 
- ** State:
- ** - isOpen: Boolean, true if the accordion item is currently expanded, false otherwise.
+ * State:
+ * - isOpen: Boolean, true if the accordion item is currently expanded, false otherwise.
 
- ** Callbacks:
- ** - handleToggle: Toggles the `isOpen` state.
- ** - handleKeyDown: Allows toggling with Enter or Spacebar for accessibility.
+ * Callbacks:
+ * - handleToggle: Toggles the `isOpen` state.
+ * - handleKeyDown: Allows toggling with Enter or Spacebar for accessibility.
  ************************************************************************************************/
 function TermsAccordion({item}: TTermsAccordionProps): ReactNode {
 	const [isOpen, setIsOpen] = useState(false);
@@ -126,10 +126,10 @@ function TermsAccordion({item}: TTermsAccordionProps): ReactNode {
 }
 
 /************************************************************************************************
- ** Default Export (Memoized TermsAccordion):
+ * Default Export (Memoized TermsAccordion):
 
- ** Exports the `TermsAccordion` component wrapped in `React.memo`.
- ** This optimization prevents the component from re-rendering if its props (`item`) have not changed,
- ** which can be beneficial when rendering a list of accordion items.
+ * Exports the `TermsAccordion` component wrapped in `React.memo`.
+ * This optimization prevents the component from re-rendering if its props (`item`) have not changed,
+ * which can be beneficial when rendering a list of accordion items.
  ************************************************************************************************/
 export default memo(TermsAccordion);

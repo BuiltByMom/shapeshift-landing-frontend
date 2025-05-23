@@ -1,20 +1,20 @@
 /************************************************************************************************
- ** Terms Page Structure & Components:
+ * Terms Page Structure & Components:
 
- ** This file defines the main structure and components for rendering legal documents like
- ** the Privacy Policy and Terms of Service. It includes functions for generating metadata,
- ** displaying the content within accordions, and providing a loading skeleton.
+ * This file defines the main structure and components for rendering legal documents like
+ * the Privacy Policy and Terms of Service. It includes functions for generating metadata,
+ * displaying the content within accordions, and providing a loading skeleton.
 
- ** Components & Functions:
- ** - `generateMetadata`: Dynamically creates page metadata (title, description, OpenGraph)
- **   based on the provided page title.
- ** - `TermsContent`: Renders a list of `TTermsItemData` objects using the `TermsAccordion`
- **   component for each item. Applies specific styling via `terms.module.css`.
- ** - `TermsLoadingSkeleton`: A simple skeleton UI displayed as a fallback during content loading,
- **   mimicking the accordion structure.
- ** - `TermsPage`: The main exported component that orchestrates the display. It includes a header
- **   with the page title and a "Get Started" button, and then uses `Suspense` to show
- **   `TermsLoadingSkeleton` while the `TermsContent` is being prepared/rendered.
+ * Components & Functions:
+ * - `generateMetadata`: Dynamically creates page metadata (title, description, OpenGraph)
+ *   based on the provided page title.
+ * - `TermsContent`: Renders a list of `TTermsItemData` objects using the `TermsAccordion`
+ *   component for each item. Applies specific styling via `terms.module.css`.
+ * - `TermsLoadingSkeleton`: A simple skeleton UI displayed as a fallback during content loading,
+ *   mimicking the accordion structure.
+ * - `TermsPage`: The main exported component that orchestrates the display. It includes a header
+ *   with the page title and a "Get Started" button, and then uses `Suspense` to show
+ *   `TermsLoadingSkeleton` while the `TermsContent` is being prepared/rendered.
  ************************************************************************************************/
 
 import {Suspense} from 'react';
@@ -33,16 +33,16 @@ type TTermsPageProps = {
 };
 
 /************************************************************************************************
- ** generateMetadata Function:
+ * generateMetadata Function:
 
- ** Creates dynamic `Metadata` object for a terms page (e.g., Privacy Policy, Terms of Service).
- ** This metadata is used by Next.js for SEO and social sharing purposes.
+ * Creates dynamic `Metadata` object for a terms page (e.g., Privacy Policy, Terms of Service).
+ * This metadata is used by Next.js for SEO and social sharing purposes.
 
- ** Args:
- ** - title: The title of the specific terms page (e.g., "Privacy Policy").
+ * Args:
+ * - title: The title of the specific terms page (e.g., "Privacy Policy").
 
- ** Returns:
- ** - A `Metadata` object containing the page title, description, and OpenGraph tags.
+ * Returns:
+ * - A `Metadata` object containing the page title, description, and OpenGraph tags.
  ************************************************************************************************/
 export function generateMetadata({title}: {title: string}): Metadata {
 	return {
@@ -56,14 +56,14 @@ export function generateMetadata({title}: {title: string}): Metadata {
 }
 
 /************************************************************************************************
- ** TermsContent Function Component:
+ * TermsContent Function Component:
 
- ** Renders the main content of a terms page, which consists of a list of accordion items.
- ** It maps over an array of `TTermsItemData` and renders a `TermsAccordion` for each.
+ * Renders the main content of a terms page, which consists of a list of accordion items.
+ * It maps over an array of `TTermsItemData` and renders a `TermsAccordion` for each.
 
- ** Props:
- ** - title: The title of the terms page (passed but not directly used in this component's rendering).
- ** - items: An array of `TTermsItemData` objects, each representing a section of the terms document.
+ * Props:
+ * - title: The title of the terms page (passed but not directly used in this component's rendering).
+ * - items: An array of `TTermsItemData` objects, each representing a section of the terms document.
  ************************************************************************************************/
 function TermsContent({items}: TTermsPageProps): ReactNode {
 	return (
@@ -81,11 +81,11 @@ function TermsContent({items}: TTermsPageProps): ReactNode {
 }
 
 /************************************************************************************************
- ** TermsLoadingSkeleton Function Component:
+ * TermsLoadingSkeleton Function Component:
 
- ** Provides a loading state UI (skeleton screen) that mimics the appearance of the
- ** `TermsContent` component. This is shown as a fallback via `Suspense` while the actual
- ** terms content is loading or being prepared.
+ * Provides a loading state UI (skeleton screen) that mimics the appearance of the
+ * `TermsContent` component. This is shown as a fallback via `Suspense` while the actual
+ * terms content is loading or being prepared.
  ************************************************************************************************/
 function TermsLoadingSkeleton(): ReactNode {
 	return (
@@ -101,16 +101,16 @@ function TermsLoadingSkeleton(): ReactNode {
 }
 
 /************************************************************************************************
- ** TermsPage Function Component:
+ * TermsPage Function Component:
 
- ** The primary component for rendering a complete terms page (e.g., Privacy Policy).
- ** It includes a header section with the page title and a call-to-action button.
- ** The main content, consisting of accordion items, is rendered via the `TermsContent`
- ** component, wrapped in a `Suspense` boundary with `TermsLoadingSkeleton` as the fallback.
+ * The primary component for rendering a complete terms page (e.g., Privacy Policy).
+ * It includes a header section with the page title and a call-to-action button.
+ * The main content, consisting of accordion items, is rendered via the `TermsContent`
+ * component, wrapped in a `Suspense` boundary with `TermsLoadingSkeleton` as the fallback.
 
- ** Props:
- ** - title: The title of the terms page (e.g., "Terms of Service").
- ** - items: An array of `TTermsItemData` objects to be displayed in accordions.
+ * Props:
+ * - title: The title of the terms page (e.g., "Terms of Service").
+ * - items: An array of `TTermsItemData` objects to be displayed in accordions.
  ************************************************************************************************/
 export function TermsPage({title, items}: TTermsPageProps): ReactNode {
 	return (

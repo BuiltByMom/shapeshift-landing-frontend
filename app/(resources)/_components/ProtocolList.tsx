@@ -1,27 +1,27 @@
 'use client';
 
 /************************************************************************************************
- ** ProtocolList Component & TProtocolListProps Type:
+ * ProtocolList Component & TProtocolListProps Type:
 
- ** This file defines the `ProtocolList` component and its associated `TProtocolListProps` type.
- ** The component is designed for displaying a grid of protocol cards.
+ * This file defines the `ProtocolList` component and its associated `TProtocolListProps` type.
+ * The component is designed for displaying a grid of protocol cards.
 
- ** `TProtocolListProps` Type:
- ** - Defines the props for the `ProtocolList` component.
- ** - Fields:
- **   - protocols: An array of `TSupportedProtocolData` objects or null.
- **   - isLoading: Optional boolean indicating if data is loading.
- **   - className: Optional string for additional CSS classes.
- **   - isSearchQuery: Optional boolean indicating if the list is a search result, affecting
- **     the empty state message.
+ * `TProtocolListProps` Type:
+ * - Defines the props for the `ProtocolList` component.
+ * - Fields:
+ *   - protocols: An array of `TSupportedProtocolData` objects or null.
+ *   - isLoading: Optional boolean indicating if data is loading.
+ *   - className: Optional string for additional CSS classes.
+ *   - isSearchQuery: Optional boolean indicating if the list is a search result, affecting
+ *     the empty state message.
 
- ** `ProtocolList` Function:
- ** - A specialized component for displaying protocol grids.
- ** - Uses `ResourceGrid` and `ResourceCard` for consistent display.
- ** - Handles loading states and empty states (differentiating between a general empty state
- **   and a no-search-results state).
- ** - Each protocol card links to its dedicated page (e.g., `/supported-protocols/[slug]`).
- ** - Optimized for protocol data structure and provides type-safe implementation.
+ * `ProtocolList` Function:
+ * - A specialized component for displaying protocol grids.
+ * - Uses `ResourceGrid` and `ResourceCard` for consistent display.
+ * - Handles loading states and empty states (differentiating between a general empty state
+ *   and a no-search-results state).
+ * - Each protocol card links to its dedicated page (e.g., `/supported-protocols/[slug]`).
+ * - Optimized for protocol data structure and provides type-safe implementation.
  ************************************************************************************************/
 
 import {ResourceCard} from '@/app/(resources)/_components/ResourceCard';
@@ -31,18 +31,18 @@ import type {TSupportedProtocolData} from '@/components/strapi/types';
 import type {ReactNode} from 'react';
 
 /************************************************************************************************
- ** TProtocolListProps Type:
+ * TProtocolListProps Type:
 
- ** Defines the props for the `ProtocolList` component.
+ * Defines the props for the `ProtocolList` component.
 
- ** Fields:
- ** - protocols: An array of `TSupportedProtocolData` objects representing the protocols to display,
- **   or null if no data is available.
- ** - isLoading: Optional boolean flag indicating if the protocol data is currently being loaded.
- **   Defaults to false.
- ** - className: Optional string for applying additional CSS classes to the underlying `ResourceGrid`.
- ** - isSearchQuery: Optional boolean flag indicating if the current list of protocols is the
- **   result of a search query. This affects the message displayed when no protocols are found.
+ * Fields:
+ * - protocols: An array of `TSupportedProtocolData` objects representing the protocols to display,
+ *   or null if no data is available.
+ * - isLoading: Optional boolean flag indicating if the protocol data is currently being loaded.
+ *   Defaults to false.
+ * - className: Optional string for applying additional CSS classes to the underlying `ResourceGrid`.
+ * - isSearchQuery: Optional boolean flag indicating if the current list of protocols is the
+ *   result of a search query. This affects the message displayed when no protocols are found.
  ************************************************************************************************/
 type TProtocolListProps = {
 	protocols: TSupportedProtocolData[] | null;
@@ -52,20 +52,20 @@ type TProtocolListProps = {
 };
 
 /************************************************************************************************
- ** ProtocolList Function:
+ * ProtocolList Function:
 
- ** Renders a grid of protocol cards using the `ResourceGrid` and `ResourceCard` components.
- ** It is designed to display a list of supported protocols, handling loading states and
- ** empty states (differentiating between a general empty state and a no-search-results state).
+ * Renders a grid of protocol cards using the `ResourceGrid` and `ResourceCard` components.
+ * It is designed to display a list of supported protocols, handling loading states and
+ * empty states (differentiating between a general empty state and a no-search-results state).
 
- ** Args:
- ** - protocols (TSupportedProtocolData[] | null): The list of protocol data to display.
- ** - isLoading (boolean, optional): True if the data is currently loading.
- ** - className (string, optional): Additional CSS classes for the grid.
- ** - isSearchQuery (boolean, optional): True if the list is a result of a search.
+ * Args:
+ * - protocols (TSupportedProtocolData[] | null): The list of protocol data to display.
+ * - isLoading (boolean, optional): True if the data is currently loading.
+ * - className (string, optional): Additional CSS classes for the grid.
+ * - isSearchQuery (boolean, optional): True if the list is a result of a search.
 
- ** Returns:
- ** - ReactNode: The JSX element representing the list of protocol cards.
+ * Returns:
+ * - ReactNode: The JSX element representing the list of protocol cards.
  ************************************************************************************************/
 export function ProtocolList({protocols, isLoading, className, isSearchQuery}: TProtocolListProps): ReactNode {
 	return (

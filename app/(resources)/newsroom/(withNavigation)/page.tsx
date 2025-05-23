@@ -1,23 +1,23 @@
 /************************************************************************************************
- ** Newsroom List Page Component (All Posts):
- **
- ** This client-side component renders the main newsroom listing page, displaying all newsroom
- ** posts in a paginated format. It serves as the default view when no specific category or
- ** tag filters are applied by the user.
- **
- ** Features:
- ** - Comprehensive Listing: Shows all available newsroom posts.
- ** - Pagination: Implements pagination using `useFetchNewsroom` and `ReactPaginate` to handle
- **   large numbers of posts efficiently.
- ** - Loading State: Displays a skeleton loader while posts are being fetched, improving UX.
- ** - Empty State: Shows a user-friendly message if no newsroom posts are found.
- ** - Consistent Post Display: Uses the `NewsPost` component to render each individual news item,
- **   ensuring a uniform look and feel.
- ** - Banner: Includes a `Banner` component, likely for calls-to-action or important announcements.
- **
- ** Constants:
- ** - `PAGE_SIZE`: Defines the number of posts to display per page (12).
- ** - `SORT`: Sets the default sort order for posts ('desc' for newest first).
+ * Newsroom List Page Component (All Posts):
+
+ * This client-side component renders the main newsroom listing page, displaying all newsroom
+ * posts in a paginated format. It serves as the default view when no specific category or
+ * tag filters are applied by the user.
+
+ * Features:
+ * - Comprehensive Listing: Shows all available newsroom posts.
+ * - Pagination: Implements pagination using `useFetchNewsroom` and `ReactPaginate` to handle
+ *   large numbers of posts efficiently.
+ * - Loading State: Displays a skeleton loader while posts are being fetched, improving UX.
+ * - Empty State: Shows a user-friendly message if no newsroom posts are found.
+ * - Consistent Post Display: Uses the `NewsPost` component to render each individual news item,
+ *   ensuring a uniform look and feel.
+ * - Banner: Includes a `Banner` component, likely for calls-to-action or important announcements.
+
+ * Constants:
+ * - `PAGE_SIZE`: Defines the number of posts to display per page (12).
+ * - `SORT`: Sets the default sort order for posts ('desc' for newest first).
  ************************************************************************************************/
 'use client';
 
@@ -36,23 +36,23 @@ const PAGE_SIZE = 12;
 const SORT = 'desc';
 
 /************************************************************************************************
- ** NewsroomList Function (Default Export):
- **
- ** Renders a paginated list of all newsroom posts. This component is typically used as the
- ** main page for the newsroom (e.g., `/newsroom`) when no specific filters (like category or
- ** tag) are active. It fetches data using `useFetchNewsroom` and manages pagination state.
- **
- ** State:
- ** - `page`: The current page number for pagination, initialized to 1 and managed by `useState`.
- **
- ** Fetched Data (from `useFetchNewsroom`):
- ** - `posts`: An array of newsroom post objects.
- ** - `pagination`: Object containing pagination metadata (e.g., `pageCount`).
- ** - `isLoading`: Boolean indicating whether the posts are currently being fetched.
- **
- ** Returns:
- ** - A ReactNode containing the grid of news posts, pagination controls, loading/empty state
- **   indicators, and a banner.
+ * NewsroomList Function (Default Export):
+
+ * Renders a paginated list of all newsroom posts. This component is typically used as the
+ * main page for the newsroom (e.g., `/newsroom`) when no specific filters (like category or
+ * tag) are active. It fetches data using `useFetchNewsroom` and manages pagination state.
+
+ * State:
+ * - `page`: The current page number for pagination, initialized to 1 and managed by `useState`.
+
+ * Fetched Data (from `useFetchNewsroom`):
+ * - `posts`: An array of newsroom post objects.
+ * - `pagination`: Object containing pagination metadata (e.g., `pageCount`).
+ * - `isLoading`: Boolean indicating whether the posts are currently being fetched.
+
+ * Returns:
+ * - A ReactNode containing the grid of news posts, pagination controls, loading/empty state
+ *   indicators, and a banner.
  ************************************************************************************************/
 export default function NewsroomList(): ReactNode {
 	const [page, setPage] = useState(1);

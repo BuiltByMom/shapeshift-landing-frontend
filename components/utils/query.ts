@@ -10,7 +10,7 @@ import type {
 
 /**
  * API utility functions to fetch data from Strapi CMS
- *
+
  * Each function fetches specific content types and handles error cases uniformly.
  * All API calls include authentication via STRAPI_API_TOKEN environment variable.
  */
@@ -26,7 +26,7 @@ const apiHeaders = {
 
 /**
  * Fetches FAQ sections with nested items
- *
+
  * @returns Promise with FAQ data or null if request fails
  */
 export async function getFaq(): Promise<TFaqData | null> {
@@ -44,7 +44,7 @@ export async function getFaq(): Promise<TFaqData | null> {
 
 /**
  * Fetches a specific wallet by its slug
- *
+
  * @param slug - Unique identifier for the wallet
  * @returns Promise with wallet data or null if request fails or wallet not found
  */
@@ -63,7 +63,7 @@ export async function getSupportedWallet(slug: string): Promise<TSupportedWallet
 
 /**
  * Fetches a specific blockchain network by its slug
- *
+
  * @param slug - Unique identifier for the chain
  * @returns Promise with chain data or null if request fails or chain not found
  */
@@ -82,7 +82,7 @@ export async function getSupportedChain(slug: string): Promise<TSupportedChainDa
 
 /**
  * Fetches a specific protocol by its slug
- *
+
  * @param slug - Unique identifier for the protocol
  * @returns Promise with protocol data or null if request fails or protocol not found
  */
@@ -101,7 +101,7 @@ export async function getSupportedProtocol(slug: string): Promise<TSupportedProt
 
 /**
  * Fetches all discover section entries
- *
+
  * @returns Promise with array of discover data or null if request fails
  */
 export async function getDiscovers(): Promise<TDiscoverData[] | null> {
@@ -116,7 +116,7 @@ export async function getDiscovers(): Promise<TDiscoverData[] | null> {
 
 /**
  * Fetches privacy policy content
- *
+
  * @returns Promise with privacy policy data or null if request fails
  */
 export async function getPrivacyPolicy(): Promise<TPrivacyPolicyData | null> {
@@ -131,7 +131,7 @@ export async function getPrivacyPolicy(): Promise<TPrivacyPolicyData | null> {
 
 /**
  * Fetches terms of service content
- *
+
  * @returns Promise with terms of service data or null if request fails
  */
 export async function getTermsOfService(): Promise<TTermsOfServiceData | null> {
