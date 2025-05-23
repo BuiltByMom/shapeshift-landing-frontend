@@ -12,7 +12,6 @@ import {Button} from '@/components/common/Button';
  * - Client-side interactivity for the CTA button, opening the link in a new tab securely.
  * - Responsive design using a picture element for optimal image display across devices.
  * - Accessibility considerations with `aria-labelledby` for the section and `aria-label` for
- * - Client-side interactivity for button clicks
  * - Responsive image handling with picture element
  * - Integration with stats display
  * - Enhanced accessibility with proper ARIA attributes
