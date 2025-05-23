@@ -1,15 +1,15 @@
 /************************************************************************************************
  ** BackgroundImage Component:
-
+ **
  ** A reusable background image component used across product pages
  ** Provides consistent hero background styling for the product section
-
+ **
  ** Features:
  ** - Uses Next.js Image component for optimized loading
  ** - Hidden on mobile devices, only visible on desktop (lg breakpoint)
  ** - Positioned absolutely to cover the entire viewport
  ** - Properly configured for accessibility (decorative image)
-
+ **
  ** Usage:
  ** - Include this component at the top of product page layouts
  ** - Should be the first element in the main container
