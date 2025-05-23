@@ -1,12 +1,12 @@
 /********************************************************************************************
  * News Post Card Component
- *
+
  * Displays a news article preview card with:
  * - Featured image
  * - Title and description
  * - Author/category and publication date
  * - Handles both internal and external article links
- *
+
  * Features:
  * - Responsive design
  * - Hover animations

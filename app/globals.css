@@ -1,12 +1,42 @@
+/************************************************************************************************
+** Global Stylesheet:
+**
+** This file defines the global styles for the application, including Tailwind CSS base,
+** components, and utilities, as well as custom CSS variables for light and dark themes,
+** default body font, and any global overrides or utility classes.
+**
+** Sections:
+** - Tailwind CSS Imports: Imports base, components, and utilities from Tailwind.
+** - Theme Variables: Defines CSS custom properties for background and foreground colors
+**   for both light and dark color schemes.
+** - Body Styles: Sets the default font family for the application.
+** - Custom Theme Extensions: Defines additional custom properties if needed.
+** - Utility Classes: Global utility classes or overrides, such as hiding .wg-default.
+************************************************************************************************/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/************************************************************************************************
+** Light Theme Variables:
+**
+** Defines the default CSS custom properties for the light color scheme.
+** --background: Sets the primary background color for light mode.
+** --foreground: Sets the primary text/element color for light mode.
+************************************************************************************************/
 :root {
 	--background: #ffffff;
 	--foreground: #171717;
 }
 
+/************************************************************************************************
+** Dark Theme Variables (Media Query):
+**
+** Defines CSS custom properties for the dark color scheme when the user's system preference
+** is set to dark mode.
+** --background: Sets the primary background color for dark mode.
+** --foreground: Sets the primary text/element color for dark mode.
+************************************************************************************************/
 @media (prefers-color-scheme: dark) {
 	:root {
 		--background: #0a0a0a;
@@ -14,6 +44,12 @@
 	}
 }
 
+/************************************************************************************************
+** Body Styles:
+**
+** Sets the default font family for the entire application.
+** This ensures a consistent typographic base across all components and pages.
+************************************************************************************************/
 body {
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -23,6 +59,12 @@ body {
 	--color-secondary: #e6e6e6;
 }
 
+/************************************************************************************************
+** Utility Class Overrides:
+**
+** Contains global utility classes or overrides. For example, `.wg-default` is set to
+** display: none, potentially to hide a third-party widget or element by default.
+************************************************************************************************/
 .wg-default {
 	display: none !important;
 }

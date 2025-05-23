@@ -40,7 +40,7 @@ export function TradingWidget(): ReactNode {
 		try {
 			setIsLoading(true);
 			fetch(
-				`https://api.proxy.shapeshift.com/api/v1/zrx/swap/permit2/price?chainId=${fromChain.chainId}&buyToken=${toToken.tokenAddress}&sellToken=${fromToken.tokenAddress}&sellAmount=${amount * 10 ** (fromToken.decimals[fromChain.requestKey.toLowerCase()] || 6)}&swapFeeBps=68&swapFeeToken=${fromToken.tokenAddress}&slippageBps=20&swapFeeRecipient=0x90a48d5cf7343b08da12e067680b4c6dbfe551be&feeRecipientTradeSurplus=0x90a48d5cf7343b08da12e067680b4c6dbfe551be`
+				`https://api.proxy.shapeshift.com/api/v1/zrx/swap/permit2/price?chainId=${fromChain.chainId}&buyToken=${toToken.tokenAddress}&sellToken=${fromToken.tokenAddress}&sellAmount=${amount * 10 * (fromToken.decimals[fromChain.requestKey.toLowerCase()] || 6)}&swapFeeBps=68&swapFeeToken=${fromToken.tokenAddress}&slippageBps=20&swapFeeRecipient=0x90a48d5cf7343b08da12e067680b4c6dbfe551be&feeRecipientTradeSurplus=0x90a48d5cf7343b08da12e067680b4c6dbfe551be`
 			)
 				.then(async res => res.json())
 				.then(data => {
@@ -67,7 +67,7 @@ export function TradingWidget(): ReactNode {
 		try {
 			setIsLoading(true);
 			fetch(
-				`https://daemon.thorchain.shapeshift.com/lcd/thorchain/quote/swap?amount=${amount * 10 ** (fromToken.decimals[toToken.symbol?.toLowerCase() || 'eth'] || 6)}&from_asset=${fromChain.requestKey}.${fromToken.requestKey}&to_asset=${toChain.requestKey}.${toToken.requestKey}&affiliate_bps=64&affiliate=ss&streaming_interval=1`
+				`https://daemon.thorchain.shapeshift.com/lcd/thorchain/quote/swap?amount=${amount * 10 * (fromToken.decimals[toToken.symbol?.toLowerCase() || 'eth'] || 6)}&from_asset=${fromChain.requestKey}.${fromToken.requestKey}&to_asset=${toChain.requestKey}.${toToken.requestKey}&affiliate_bps=64&affiliate=ss&streaming_interval=1`
 			)
 				.then(async res => res.json())
 				.then(data => {
@@ -98,7 +98,7 @@ export function TradingWidget(): ReactNode {
 		setIsLoading(true);
 		try {
 			fetch(
-				`https://chainflip-broker.io/quotes-native?apiKey=09bc0796ff40435482c0a54fa6ae2784&sourceAsset=${fromToken.symbol}.${fromChain.requestKey}&destinationAsset=${toToken.symbol}.${toChain.requestKey}&amount=${Number(debouncedAmount) * 10 ** (fromToken.decimals[toToken.symbol?.toLowerCase() || 'eth'] || 6)}&commissionBps=63`
+				`https://chainflip-broker.io/quotes-native?apiKey=09bc0796ff40435482c0a54fa6ae2784&sourceAsset=${fromToken.symbol}.${fromChain.requestKey}&destinationAsset=${toToken.symbol}.${toChain.requestKey}&amount=${Number(debouncedAmount) * 10 * (fromToken.decimals[toToken.symbol?.toLowerCase() || 'eth'] || 6)}&commissionBps=63`
 			)
 				.then(async res => res.json())
 				.then(data => {

@@ -40,7 +40,7 @@ const githubUrl = 'https://github.com/shapeshift';
 export const footerButtonTitle = 'Donate';
 
 /************************************************************************************************
- ** Homepage constants
+ * Homepage constants
  ************************************************************************************************/
 
 export const heroTitle = 'Your multichain crypto home base.';
@@ -61,7 +61,7 @@ export const featureCard4WhiteTitle = 'Earn more';
 export const featureCard4BlueTitle = 'with DeFi';
 
 /************************************************************************************************
- ** DAO fox-token constants
+ * DAO fox-token constants
  ************************************************************************************************/
 
 export const foxTokenTitleWhite = 'Fox';
@@ -152,7 +152,7 @@ export const foxTokenContributeItems = [
 ];
 
 /************************************************************************************************
- ** Banner constants
+ * Banner constants
  ************************************************************************************************/
 
 export const bannerLeftTitle = 'Your multichain crypto home base.';
@@ -162,7 +162,7 @@ export const bannerRightButtonTitle = 'Try the demo';
 export const bannerMobileSubtitle = 'Or download the app';
 
 /************************************************************************************************
- ** App constants
+ * App constants
  ************************************************************************************************/
 
 export const appResources = [

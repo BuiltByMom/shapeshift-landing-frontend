@@ -1,6 +1,6 @@
 /********************************************************************************************
  * Blog Posts Caching Context
- *
+
  * Provides a context for caching blog posts data and query parameters to optimize performance
  * and reduce redundant API calls. This context maintains:
  * - Cached blog post responses
