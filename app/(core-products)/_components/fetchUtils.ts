@@ -36,7 +36,7 @@
  * - endpoint (string): The specific API endpoint path (e.g., 'defi-wallet', 'products').
  * - queryParams (string): A string of URL query parameters to be appended to the request
  *   (e.g., 'populate=*&filter[name]=value').
- * - errorContext (string): A descriptive string used in error messages to provide context
+ * - errorCtx (string): A descriptive string used in error messages to provide context
  *   about what data was being fetched (e.g., 'DeFi Wallet page', 'Trade product data').
 
  * Type Parameters:
@@ -51,7 +51,7 @@
 export async function fetchWithErrorHandling<T>(
 	endpoint: string,
 	queryParams: string,
-	errorContext: string
+	errorCtx: string
 ): Promise<T | null> {
 	try {
 		const response = await fetch(`${process.env.STRAPI_URL}/api/${endpoint}?${queryParams}`, {
@@ -64,14 +64,14 @@ export async function fetchWithErrorHandling<T>(
 		});
 
 		if (!response.ok) {
-			console.error(`Failed to fetch ${errorContext}: Status ${response.status}`);
+			console.error(`Failed to fetch ${errorCtx}: Status ${response.status}`);
 			return null;
 		}
 
 		const data = await response.json();
 		return data.data;
 	} catch (error) {
-		console.error(`Error fetching ${errorContext}:`, error instanceof Error ? error.message : String(error));
+		console.error(`Error fetching ${error}:`, error instanceof Error ? error.message : String(error));
 		return null;
 	}
 }
